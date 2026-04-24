@@ -5,7 +5,6 @@ weight: 2
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{}
 
 
 ### Week 10 Objectives:
