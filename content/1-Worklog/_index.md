@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog"
 date: 2024-01-01
 weight: 1
@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+{}
 
 **On this page**, you will need to introduce your worklog. **How** did you complete it? How many weeks did you take to complete the program? **What** did you do in those weeks?
 
@@ -37,3 +35,4 @@ Typically, and as a standard, a worklog is carried out over about 3 months (thro
 **Week 11:** [Doing task M...](1.11-week11/)
 
 **Week 12:** [Doing task N...](1.12-week12/)
+

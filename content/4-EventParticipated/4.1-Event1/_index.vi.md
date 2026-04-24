@@ -1,4 +1,4 @@
----
+﻿---
 title: "Event 1"
 date: 2024-01-01
 weight: 1
@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+{}
 
 # Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
 
@@ -123,3 +121,4 @@ Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải 
 #### Một số hình ảnh khi tham gia sự kiện
 * Thêm các hình ảnh của các bạn tại đây
 > Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+
