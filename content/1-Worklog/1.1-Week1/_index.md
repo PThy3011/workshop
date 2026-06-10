@@ -21,8 +21,8 @@ pre: " <b> 1.1. </b> "
 | --- | --- | --- | --- | --- |
 | 2 | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations | 17/04/2026 | 17/04/2026 | Internal Regulations |
 | 3 | - Learn about AWS and its core types of services: <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database | 19/04/2026 | 19/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - Create an AWS Free Tier account <br> - Learn about AWS Management Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI on local machine <br>&emsp; + Use basic AWS CLI commands | 21/04/2026 | 21/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - Learn about cloud cost management with **AWS Budgets** <br> - Analyze the benefits of setting up budget thresholds and alerts <br> - **Practice:** <br>&emsp; + Initialize budget tracking metrics to control costs <br>&emsp; + Handle and configure threshold alerts to optimize and remove unnecessary costs | 22/04/2026 | 22/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Create an AWS Free Tier account <br> - Learn about AWS Management Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI on local machine <br>&emsp; + Use basic AWS CLI commands | 21/04/2026 | 21/04/2026 | <https://000001.awsstudygroup.com/> |
+| 5 | - Learn about cloud cost management with **AWS Budgets** <br> - Analyze the benefits of setting up budget thresholds and alerts <br> - **Practice:** <br>&emsp; + Initialize budget tracking metrics to control costs <br>&emsp; + Handle and configure threshold alerts to optimize and remove unnecessary costs | 22/04/2026 | 22/04/2026 | <https://000007.awsstudygroup.com/> |
 | 6 | - Summarize the first week's task results <br> - Double-check system configurations and complete Week 1 report | 23/04/2026 | 23/04/2026 | Personal Notes |
 
 ---

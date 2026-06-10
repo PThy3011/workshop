@@ -14,17 +14,17 @@ Typically, and as a standard, a worklog is carried out over about 3 months (thro
 
 **Week 1:** [Getting familiar with AWS and basic AWS services](1.1-week1/)
 
-**Week 2:** [Doing task A...](1.2-week2/)
+**Week 2:** [Exploring Amazon EC2 compute instances, AWS IAM access management, and VPC network design.](1.2-week2/)
 
-**Week 3:** [Doing task B...](1.3-week3/)
+**Week 3:** [Establishing Hybrid DNS architectures, configuring bilateral VPC Peering, and Transit Gateway routing.](1.3-week3/)
 
-**Week 4:** [Doing task C...](1.4-week4/)
+**Week 4:** [Managing Amazon S3 object-based storage solutions and deploying static website hosting platforms.](1.4-week4/)
 
-**Week 5:** [Doing task D...](1.5-week5/)
+**Week 5:** [Simulating on-premises environments via VMware Workstation and executing server migration to AWS Cloud.](1.5-week5/)
 
-**Week 6:** [Doing task E...](1.6-week6/)
+**Week 6:** [Evaluating automated security postures via AWS Security Hub, cloud benchmarks compliance, and cost tuning with AWS Lambda.](1.6-week6/)
 
-**Week 7:** [Doing task G...](1.7-week7/)
+**Week 7:** [Synthesizing cumulative internship Worklogs, editing technical cloud architecture Blogs, and finalizing the capstone group project.](1.7-week7/)
 
 **Week 8:** [Doing task H...](1.8-week8/)
 

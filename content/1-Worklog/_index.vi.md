@@ -15,17 +15,17 @@ Thông thường và cũng là tiêu chuẩn, một worklog được thực hi�
 
 **Tuần 1:** [Làm quen với AWS và các dịch vụ cơ bản trong AWS](1.1-week1/)
 
-**Tuần 2:** [Làm công việc A...](1.2-week2/)
+**Tuần 2:** [Tìm hiểu về dịch vụ máy chủ Amazon EC2, dịch vụ quản lý danh tính IAM và thiết kế mạng VPC.](1.2-week2/)
 
-**Tuần 3:** [Làm công việc B...](1.3-week3/)
+**Tuần 3:** [Xây dựng kiến trúc Hybrid DNS, thiết kế kết nối liên vùng VPC Peering và Transit Gateway.](1.3-week3/)
 
-**Tuần 4:** [Làm công việc C...](1.4-week4/)
+**Tuần 4:** [Quản trị dịch vụ lưu trữ đối tượng Amazon S3 và cấu hình triển khai trang web tĩnh (Static Website Hosting).](1.4-week4/)
 
-**Tuần 5:** [Làm công việc D...](1.5-week5/)
+**Tuần 5:** [Cấu hình hệ thống giả lập On-premises với VMware Workstation và thực hiện di chuyển máy ảo (Migration) lên AWS Cloud.](1.5-week5/)
 
-**Tuần 6:** [Làm công việc E...](1.6-week6/)
+**Tuần 6:** [Đánh giá an ninh hạ tầng tự động với AWS Security Hub, áp dụng các tiêu chuẩn bảo mật đám mây và tối ưu chi phí bằng AWS Lambda.](1.6-week6/)
 
-**Tuần 7:** [Làm công việc G...](1.7-week7/)
+**Tuần 7:** [Tổng kết nhật ký công việc (Worklog), biên tập các bài viết kỹ thuật (Blogs) và hoàn thiện sản phẩm đồ án nhóm.](1.7-week7/)
 
 **Tuần 8:** [Làm công việc H...](1.8-week8/)
 
