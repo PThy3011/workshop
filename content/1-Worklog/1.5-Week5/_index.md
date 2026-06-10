@@ -19,8 +19,8 @@ pre: " <b> 1.5. </b> "
 | 2 | - Evaluate the process of provisioning a standalone local on-premises mock node leveraging the Ubuntu Desktop operating system environment | 15/05/2026 | 15/05/2026 | Infrastructure Lab Manual |
 | 3 | - Download, license, and configure hypervisor hyper-allocations using **VMware Workstation Pro** software on workstation terminals | 16/05/2026 | 17/05/2026 | VMware Administration Guide |
 | 4 | - Execute precise OS kernel allocation and install the Ubuntu environment within the virtualized VMware framework, adjusting local subnet routing tables | 18/05/2026 | 18/05/2026 | Linux OS Reference Docs |
-| 5 | - Audit disk export mechanisms and complete technical image preparation, compress system files, and sanitize image headers for secure importing into AWS cloud environments | 19/05/2026 | 20/05/2026 | AWS Migration Guide |
-| 6 | - Orchestrate the system Cloud Migration: Convert, stream, and deploy local VMware virtual machine disk files directly into the AWS cloud fabric to create a functional running EC2 Instance | 21/05/2026 | 21/05/2026 | AWS Documentation |
+| 5 | - Audit disk export mechanisms and complete technical image preparation, compress system files, and sanitize image headers for secure importing into AWS cloud environments | 19/05/2026 | 20/05/2026 | <https://000014.awsstudygroup.com/> |
+| 6 | - Orchestrate the system Cloud Migration: Convert, stream, and deploy local VMware virtual machine disk files directly into the AWS cloud fabric to create a functional running EC2 Instance | 21/05/2026 | 21/05/2026 | <https://000014.awsstudygroup.com/> |
 
 ### Week 5 Achievements:
 * Successfully simulated an active on-premises legacy data center node using VMware Workstation Pro running customized Ubuntu Desktop Linux configurations.

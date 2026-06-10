@@ -15,11 +15,11 @@ pre: " <b> 1.6. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Nghiên cứu tổng quan về trung tâm bảo mật tổng hợp **AWS Security Hub** và các bộ tiêu chuẩn kiểm tra an ninh hạ tầng tự động đám mây | 22/05/2026 | 22/05/2026 | AWS Security Guide |
-| 3 | - Phân tích chi tiết quy chuẩn kiểm định an toàn thông tin AWS Foundational Security Best Practices và bộ tiêu chuẩn đánh giá lỗ hổng hệ thống CIS AWS Foundations Benchmark | 23/05/2026 | 24/05/2026 | CIS Benchmark Docs |
-| 4 | - Tìm hiểu tiêu chuẩn bảo mật thông tin bắt buộc dành cho ngành dữ liệu thẻ thanh toán tài chính PCI DSS và các bước kích hoạt quét kiểm tra hệ thống trên AWS Security Hub | 25/05/2026 | 25/05/2026 | Security Compliance |
-| 5 | - Nghiên cứu cách viết mã nguồn kiểm soát với kiến trúc xử lý phi máy chủ **AWS Lambda** nhằm áp dụng vào việc quét dọn, quản lý và tối ưu chi phí hạ tầng máy chủ ảo AWS | 26/05/2026 | 26/05/2026 | AWS Lambda Developer |
-| 6 | - Thực hành phân bổ nhãn quản lý tài nguyên thông qua Resource Groups và hệ thống Tags <br> - Thực hành cấu hình giới hạn quyền hạn nâng cao cho tài khoản IAM User bằng giải pháp **IAM Permission Boundary** <br> - Thiết lập cơ chế bảo mật mã hóa dữ liệu ở trạng thái lưu trữ tĩnh bằng dịch vụ quản lý khóa **AWS KMS** | 27/05/2026 | 28/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | - Nghiên cứu tổng quan về trung tâm bảo mật tổng hợp **AWS Security Hub** và các bộ tiêu chuẩn kiểm tra an ninh hạ tầng tự động đám mây | 22/05/2026 | 22/05/2026 | <https://000018.awsstudygroup.com/vi/> |
+| 3 | - Phân tích chi tiết quy chuẩn kiểm định an toàn thông tin AWS Foundational Security Best Practices và bộ tiêu chuẩn đánh giá lỗ hổng hệ thống CIS AWS Foundations Benchmark | 23/05/2026 | 24/05/2026 | <https://000018.awsstudygroup.com/vi/> |
+| 4 | - Tìm hiểu tiêu chuẩn bảo mật thông tin bắt buộc dành cho ngành dữ liệu thẻ thanh toán tài chính PCI DSS và các bước kích hoạt quét kiểm tra hệ thống trên AWS Security Hub | 25/05/2026 | 25/05/2026 | <https://000018.awsstudygroup.com/vi/> |
+| 5 | - Nghiên cứu cách viết mã nguồn kiểm soát với kiến trúc xử lý phi máy chủ **AWS Lambda** nhằm áp dụng vào việc quét dọn, quản lý và tối ưu chi phí hạ tầng máy chủ ảo AWS | 26/05/2026 | 26/05/2026 | <https://000022.awsstudygroup.com/vi/> |
+| 6 | - Thực hành phân bổ nhãn quản lý tài nguyên thông qua Resource Groups và hệ thống Tags <br> - Thực hành cấu hình giới hạn quyền hạn nâng cao cho tài khoản IAM User bằng giải pháp **IAM Permission Boundary** <br> - Thiết lập cơ chế bảo mật mã hóa dữ liệu ở trạng thái lưu trữ tĩnh bằng dịch vụ quản lý khóa **AWS KMS** | 27/05/2026 | 28/05/2026 | <https://000027.awsstudygroup.com/vi/> <br> <https://000028.awsstudygroup.com/vi/> <br> <https://000030.awsstudygroup.com/vi/> <br> <https://000033.awsstudygroup.com/vi/> |
 
 ### Kết quả đạt được tuần 6:
 * Kích hoạt và vận hành thành thạo bảng điều khiển AWS Security Hub, tuân thủ nghiêm ngặt các quy chuẩn bảo mật đám mây hàng đầu: CIS Benchmark, PCI DSS và AWS Best Practices.
