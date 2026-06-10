@@ -8,49 +8,36 @@ pre: " <b> 1.2. </b> "
 {}
 
 
-### Week 2 Objectives:
+### Objectives for this week:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* **Knowledge Objectives:**
+  * Gain a thorough understanding of identity and access management, permission boundaries, and advanced account security practices using **AWS IAM**.
+  * Comprehend the technical support scopes and Service Level Agreements (SLA) across different **AWS Support** tiers.
+  * Master the architecture of **VPC (Virtual Private Cloud)**, including subnet partitioning, traffic routing principles, and network security layers.
+  * Deepen theoretical knowledge regarding **Amazon EC2** virtual server families, resource allocation, and persistent storage mechanics with **Amazon EBS**.
+
+* **Practical Skills:**
+  * Successfully implement fine-grained IAM Policies for user groups and demonstrate secure cross-account/cross-role assumption (AssumeRole).
+  * Provision EC2 compute instances, allocate static public IPs (Elastic IPs), and maintain secure remote management via cryptographic SSH keys.
+  * Deploy advanced cloud network routing: provision network address translation via **NAT Gateways**, establish encrypted **Site-to-Site VPN** tunnels, and set up isolated administration access using **EC2 Instance Connect Endpoints**.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+#### WEEK 2 (From 24/04/2026 to 30/04/2026)
+
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Learn about **AWS Support**: Analyze tier levels (Developer, Business, Enterprise) based on business cases <br> - Research supported request types, tier switching processes, and AWS response times (SLA) | 24/04/2026 | 24/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - Study fine-grained resource access control using **AWS IAM** <br> - Research core concepts: Users, Groups, Policies, and Roles <br> - **Practice:** Implement account security, create IAM Groups, attach IAM Policies for access management, manage IAM Users, and configure secure IAM Role assumption | 25/04/2026 | 26/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Research the architectural design and deployment of a **VPC (Virtual Private Cloud)** following *AWS Well-Architected Framework* standards <br> - Configure network security components and establish secure connectivity between on-premises environments and the AWS cloud | 27/04/2026 | 27/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Explore **Amazon EC2** cloud compute services: Instance types, AMIs, and EBS volumes <br> - **Practice:** Launch an EC2 compute instance, attach an additional EBS storage volume, and establish a secure SSH connection | 28/04/2026 | 29/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Advanced Network Infrastructure Practice:** <br>&emsp; + Create and configure a NAT Gateway <br>&emsp; + Use an EC2 Instance Connect Endpoint to securely access servers within private subnets <br>&emsp; + Configure a Site-to-Site VPN tunnel connection and establish VPC firewalls <br> - Review progress, evaluate outcomes, and wrap up the Week 2 internship report | 30/04/2026 | 30/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+
+---
 
 ### Week 2 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
-
+* Distinguished scope of support and Service Level Agreements (SLA) across different AWS Support tiers (Developer, Business, Enterprise).
+* Gained proficiency in **AWS IAM** management: Implemented the Principle of Least Privilege, created groups, attached permissions via policies, and verified role assumptions (AssumeRole).
+* Acquired an in-depth understanding of **VPC** network topologies, separating public/private subnets, and managing traffic flow via Route Tables and Internet Gateways.
+* Provisioned and managed **Amazon EC2** instances, bound persistent storage with EBS volumes, assigned Elastic IPs, and maintained secure shell access via Key Pairs.
+* Successfully deployed advanced secure network routing: Configured Network Address Translation via NAT Gateways, established encrypted Site-to-Site VPN tunnels, and restricted threat vectors using Security Groups and Network ACLs.
