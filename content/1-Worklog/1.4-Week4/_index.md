@@ -5,52 +5,24 @@ weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{}
+
 
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* **Knowledge:** Master object-based storage paradigms on **Amazon Simple Storage Service (Amazon S3)**, strictly differentiating global Buckets, asset Objects, and complex IAM identity permission trees.
+* **Skills:** Gain proficiency in launching cloud hybrid storage gateways, mounting concurrent remote file shares, and publishing high-availability static web hosting platforms.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Study the architectural mechanics of utilizing AWS storage gateway configurations for file system centralization <br> - Map and practice private connectivity between Amazon S3 object stores and active EC2 Instances | 08/05/2026 | 08/05/2026 | AWS Documentation |
+| 3 | - Provision and manage hybrid storage interfaces with specialized AMI Storage Gateways <br> - Initialize file gateway components, orchestrate multi-user network file shares, and mount block mounts directly onto cloud servers | 09/05/2026 | 11/05/2026 | AWS Documentation |
+| 4 | - Investigate the technical foundations of **Amazon S3**: Analyze systemic differentiations between S3 global storage buckets and metadata-tagged item Objects | 12/05/2026 | 12/05/2026 | AWS Documentation |
+| 5 | - Provision a new Amazon S3 Bucket, perform sample bulk data uploads, and execute policy configuration for native static website hosting features | 13/05/2026 | 13/05/2026 | AWS Documentation |
+| 6 | - Configure robust access boundary blocks and Public Access Control restrictions for sensitive S3 Buckets <br> - Validate object visibility policies and execute connectivity tests on the published website over the public internet | 14/05/2026 | 14/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 4 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
-
+* Successfully engineered an AMI Storage Gateway pipeline, exposing a centralized, low-latency cloud network file share to local servers.
+* Attained practical competency in managing the Amazon S3 storage fabric, configuring durable Buckets, and organizing underlying metadata-tagged Objects.
+* Successfully published a responsive static website hosted completely on Amazon S3, establishing tight control over Block Public Access mechanisms and granular bucket policies.

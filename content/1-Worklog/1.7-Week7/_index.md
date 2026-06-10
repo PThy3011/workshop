@@ -5,52 +5,29 @@ weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{}
 
 
 ### Week 7 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* **Knowledge Objectives:**
+  * Comprehensively synthesize and evaluate the technical milestones and achievements gained throughout the internship tenure at FCAJ.
+  * Research standardized methodologies for structuring technical cloud architecture blogs to deliver insights effectively and intuitively.
+  * Master the operational processes of end-of-term document packaging, integration testing, and software solution acceptance for the practical group project.
+
+* **Practical Skills:**
+  * Finalize and complete a detailed chronological internship Worklog, standardizing all task records and timelines from Week 1 to Week 6.
+  * Collaborate on team synchronization meetings and actively participate in source code optimization and core backend infrastructure troubleshooting for the group project.
+  * Compile, bundle, and wrap up the formal Graduation Internship Report package adhering strictly to internal institutional regulations.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Audit personal task records, restructure content, and complete the detailed chronological internship Worklog from Week 1 to Week 6 | 29/05/2026 | 29/05/2026 | Personal Activity Logs |
+| 3 | - Edit deep-dive architectural blog entries detailing AWS practices for website publication | 30/05/2026 | 31/05/2026 | Internship Field Notes |
+| 4 | - Facilitate synchronization team meetings to assess overall progress and delegate infrastructure optimization tasks for the collaborative group project | 01/06/2026 | 01/06/2026 | Joint Project Blueprint |
+| 5 | - .. | 02/06/2026 | 03/06/2026 | |
+| 6 | - .. <br> - .. | 04/06/2026 | 04/06/2026 | .. |
 
 ### Week 7 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
-
+* Successfully compiled a comprehensive technical internship Worklog and published localized, specialized Cloud computing blog posts on the website.
+* Collaboratively designed and established the application architecture for the team's technological project.

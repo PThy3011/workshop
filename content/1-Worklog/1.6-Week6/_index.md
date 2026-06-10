@@ -10,47 +10,19 @@ pre: " <b> 1.6. </b> "
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* **Knowledge:** Internalize foundational international cloud compliance frameworks, highlighting AWS Foundational Security Best Practices, the CIS AWS Foundations Benchmark, and the PCI DSS finance card industry standards.
+* **Skills:** Gain proficiency in running security postures on AWS Security Hub, creating event-driven serverless triggers via AWS Lambda for cost tuning, and enforcing defensive boundaries via IAM Permission Boundaries.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Explore security posture management using centralized **AWS Security Hub** frameworks and automate cloud baseline risk checking | 22/05/2026 | 22/05/2026 | AWS Security Architecture Guide |
+| 3 | - Deconstruct automated configuration checks outlined by the AWS Foundational Security Best Practices and evaluate configuration compliance against the CIS AWS Foundations Benchmark | 23/05/2026 | 24/05/2026 | CIS Benchmark Reference |
+| 4 | - Investigate specific cryptographic compliance standards for digital finance defined by PCI DSS and schedule system audits on AWS Security Hub | 25/05/2026 | 25/05/2026 | Cloud Security Compliance Docs |
+| 5 | - Formulate automation logic within a serverless **AWS Lambda** architecture to parse resource flags, script state cycles, and optimize EC2 virtual server budgets | 26/05/2026 | 26/05/2026 | AWS Lambda Developer Manual |
+| 6 | - Categorize cloud asset directories using AWS Resource Groups and unified Tagging schemes <br> - Enforce rigid delegation boundaries for cloud roles by architecting **IAM Permission Boundaries** <br> - Harden security vectors for data-at-rest by deploying automated envelope encryption keys via the **AWS KMS** system | 27/05/2026 | 28/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 6 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
-
+* Operationalized the centralized AWS Security Hub dashboard to systematically evaluate system security scores against rigorous compliance controls (CIS Benchmark, PCI DSS, AWS Security Best Practices).
+* Mastered serverless compute paradigms with event-driven AWS Lambda functions, deploying clean code to track compute state cycles and enforce tagging taxonomy compliance.
+* Achieved structural IAM account isolation using advanced Permission Boundaries, preventing privilege escalation while encrypting persistent volumes using secure KMS cryptographic data keys.

@@ -5,54 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{}
+
 
 
 ### Mục tiêu tuần 4:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* **Kiến thức:** Nắm vững dịch vụ lưu trữ đối tượng **Amazon Simple Storage Service (Amazon S3)**, phân biệt rõ các khái niệm Buckets, Objects và phân cấp quyền truy cập dữ liệu trên cloud.
+* **Kỹ năng:** Thành thạo tạo lập cổng lưu trữ đám mây, gắn kết ổ đĩa mạng chia sẻ dùng chung và cấu hình triển khai trang web tĩnh (Static Website Hosting) trên S3.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Tìm hiểu cách sử dụng cổng lưu trữ đám mây AWS làm nơi lưu trữ tệp tin tập trung <br> - Thực hành khởi tạo bộ lưu trữ Amazon S3 kết hợp giải pháp máy chủ ảo EC2 Instance | 08/05/2026 | 08/05/2026 | AWS Documentation |
+| 3 | - Thiết lập và sử dụng công cụ lưu trữ nâng cao AMI Storage Gateway <br> - Khởi tạo cổng lưu trữ tệp, tạo thư mục dùng chung và tiến hành kết nối ổ đĩa mạng chia sẻ trực tiếp lên các máy chủ | 09/05/2026 | 11/05/2026 | AWS Documentation |
+| 4 | - Nghiên cứu sâu về dịch vụ **Amazon S3**: Phân tích sự khác biệt cốt lõi giữa hạ tầng lưu trữ S3 Buckets và định dạng Object dữ liệu | 12/05/2026 | 12/05/2026 | AWS Documentation |
+| 5 | - Thực hành tạo mới S3 Bucket, thực hiện upload dữ liệu mẫu và tiến hành cấu hình tính năng lưu trữ kết hợp xuất bản giao diện trang web tĩnh | 13/05/2026 | 13/05/2026 | AWS Documentation |
+| 6 | - Định cấu hình chuỗi khối chính sách kiểm soát và phân quyền truy cập công cộng (Public Access Control) cho S3 Buckets <br> - Cấu hình bảo mật đối tượng công khai và thực hiện kiểm tra thử nghiệm tính năng vận hành của trang web trên môi trường internet | 14/05/2026 | 14/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 4:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
-
+* Triển khai thành công kiến trúc AMI Storage Gateway, thiết lập cổng lưu trữ dữ liệu trung tâm và kết nối chia sẻ thư mục mạng trực tiếp vào máy chủ.
+* Thành thạo quản trị dịch vụ lưu trữ đối tượng Amazon S3, tối ưu cấu hình Buckets và xử lý dữ liệu dạng Objects an toàn.
+* Triển khai thành công hệ thống hosting trang web tĩnh trên nền tảng Amazon S3, nắm vững cơ chế kiểm soát Public Access và phân quyền bảo mật đối tượng lưu trữ.

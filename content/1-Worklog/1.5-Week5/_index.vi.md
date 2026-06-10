@@ -5,54 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{}
+
 
 
 ### Mục tiêu tuần 5:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* **Kiến thức:** Hiểu quy trình ảo hóa, cấu hình hạ tầng on-premises và cơ chế dịch chuyển dữ liệu, chuyển đổi định dạng máy ảo từ môi trường vật lý cục bộ lên nền tảng đám mây AWS.
+* **Kỹ năng:** Làm chủ công cụ quản trị ảo hóa VMware Workstation Pro, cấu hình hệ điều hành Linux (Ubuntu Desktop) và thực hiện di chuyển máy ảo (Migration) lên Cloud.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Nghiên cứu phương pháp khởi tạo một máy chủ ảo hóa chạy độc lập trên môi trường máy tính cục bộ (On-premises) sử dụng hệ điều hành Ubuntu Desktop | 15/05/2026 | 15/05/2026 | Tài liệu Lab Hệ thống |
+| 3 | - Tiến hành tải xuống, cài đặt và thiết lập phần mềm ảo hóa chuyên dụng **VMware Workstation Pro** trên thiết bị máy tính cá nhân | 16/05/2026 | 17/05/2026 | Hướng dẫn VMware |
+| 4 | - Thực hiện các bước chuẩn bị, cấu hình cài đặt hệ điều hành Ubuntu bên trong môi trường ảo hóa VMware và thiết lập thông số mạng cục bộ | 18/05/2026 | 18/05/2026 | Hướng dẫn OS Linux |
+| 5 | - Nghiên cứu quy trình nhập xuất tập tin đóng gói ảnh đĩa hệ thống và các bước chuẩn bị kỹ thuật để nén, chuẩn hóa dữ liệu máy ảo nhằm sẵn sàng đẩy lên nền mây AWS | 19/05/2026 | 20/05/2026 | AWS Migration Guide |
+| 6 | - Thực hiện quy trình di chuyển hệ thống (Migration): Tiến hành chuyển đổi và đẩy tệp tin cấu hình máy ảo chạy từ môi trường VMware Workstation cục bộ lên hạ tầng đám mây AWS để thiết lập thành công một máy chủ ảo chạy trực tuyến trên đám mây | 21/05/2026 | 21/05/2026 | AWS Documentation |
 
 ### Kết quả đạt được tuần 5:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
-
+* Xây dựng thành công hệ thống giả lập môi trường cục bộ On-premises bằng công cụ ảo hóa VMware Workstation Pro chạy trên nền hệ điều hành Ubuntu Desktop.
+* Nắm vững tư duy xử lý và quy trình kỹ thuật chuyển đổi định dạng ảnh đĩa hệ thống giữa hai môi trường ảo hóa cục bộ và đám mây.
+* Thực hiện thành công việc import và di chuyển máy ảo (Migration) từ máy cá nhân lên môi trường điện toán đám mây AWS, chuyển đổi thành tài nguyên chạy ổn định trực tuyến.

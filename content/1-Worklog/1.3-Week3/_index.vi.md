@@ -5,54 +5,24 @@ weight: 1
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{}
+
 
 
 ### Mục tiêu tuần 3:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* **Kiến thức:** Hiểu rõ cơ chế phân giải tên miền lai Hybrid DNS, tính năng VPC Peering kết nối mạng nội bộ song phương, kiến trúc Transit Gateway quản lý mạng tập trung và giải pháp sao lưu tự động AWS Backup.
+* **Kỹ năng:** Biết cách cấu hình tự động hóa hạ tầng bằng mã lệnh thông qua mẫu thiết kế CloudFormation Template.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Thiết lập kiến trúc Hybrid DNS sử dụng dịch vụ Route 53 Resolver <br> - Khởi tạo Key Pair bảo mật và viết cấu trúc hạ tầng dạng mã với CloudFormation Template | 01/05/2026 | 02/05/2026 | AWS Documentation |
+| 3 | - Định cấu hình nhóm tường lửa Security Group để kiểm soát luồng dữ liệu <br> - Thiết lập kết nối đầu cuối đến máy chủ nhảy RDGW (Remote Desktop Gateway) | 03/05/2026 | 03/05/2026 | AWS Documentation |
+| 4 | - Triển khai dịch vụ thư mục Microsoft Active Directory (Microsoft AD) trên nền mây và thiết lập các bản ghi phân giải hệ thống DNS nội bộ | 04/05/2026 | 04/05/2026 | AWS Documentation |
+| 5 | - Nghiên cứu điều kiện tiên quyết và thiết lập kết nối vùng mạng thông suốt qua **VPC Peering** <br> - Định cấu hình bảng định tuyến Route Table, dải bảo mật kiểm soát mạng Network ACL và bộ định tuyến ảo để tối ưu hóa liên kết | 05/05/2026 | 06/05/2026 | AWS Documentation |
+| 6 | - Triển khai mô hình kết nối lưới nâng cao thông qua bộ định tuyến trung tâm **AWS Transit Gateway** <br> - Tạo mối gắn kết tài nguyên mạng Transit Gateway Attachments và thiết lập phân phối luồng đi nội bộ <br> - Xây dựng chiến lược sao lưu dữ liệu tập trung tự động bằng **AWS Backup**, cấu hình lưu trữ vòng đời trên S3 Bucket, kiểm tra và chạy thử nghiệm quy trình khôi phục sự cố | 07/05/2026 | 07/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 3:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
-
+* Triển khai thành công giải pháp Hybrid DNS tích hợp Route 53 Resolver, thiết lập kết nối xác thực Active Directory đồng bộ hóa hạ tầng.
+* Làm chủ công cụ hạ tầng dạng mã (IaC) **AWS CloudFormation**, tự động hóa cấu hình tường lửa Security Group và khởi tạo hạ tầng qua template nhanh chóng.
+* Thiết lập thông suốt mạng nội bộ thông qua VPC Peering và mở rộng mạng phân tán quy mô lớn bằng Transit Gateway.
+* Hoàn thiện quy trình sao lưu an toàn toàn diện với AWS Backup trên bộ lưu trữ S3, kiểm tra thành công khả năng khôi phục hệ thống.

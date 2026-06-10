@@ -5,53 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{}
+
 
 
 ### Mục tiêu tuần 6:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* **Kiến thức:** Nắm vững các tiêu chuẩn bảo mật điện toán đám mây quốc tế bao gồm AWS Foundational Security Best Practices, bộ quy chuẩn trung tâm CIS AWS Foundations Benchmark và tiêu chuẩn bảo mật dữ liệu thẻ thanh toán PCI DSS.
+* **Kỹ năng:** Thành thạo công cụ quản trị an ninh trung tâm AWS Security Hub, thiết lập hàm xử lý phi máy chủ AWS Lambda để tự động hóa tài nguyên và thiết lập ranh giới phân quyền nâng cao với IAM Permission Boundary.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Nghiên cứu tổng quan về trung tâm bảo mật tổng hợp **AWS Security Hub** và các bộ tiêu chuẩn kiểm tra an ninh hạ tầng tự động đám mây | 22/05/2026 | 22/05/2026 | AWS Security Guide |
+| 3 | - Phân tích chi tiết quy chuẩn kiểm định an toàn thông tin AWS Foundational Security Best Practices và bộ tiêu chuẩn đánh giá lỗ hổng hệ thống CIS AWS Foundations Benchmark | 23/05/2026 | 24/05/2026 | CIS Benchmark Docs |
+| 4 | - Tìm hiểu tiêu chuẩn bảo mật thông tin bắt buộc dành cho ngành dữ liệu thẻ thanh toán tài chính PCI DSS và các bước kích hoạt quét kiểm tra hệ thống trên AWS Security Hub | 25/05/2026 | 25/05/2026 | Security Compliance |
+| 5 | - Nghiên cứu cách viết mã nguồn kiểm soát với kiến trúc xử lý phi máy chủ **AWS Lambda** nhằm áp dụng vào việc quét dọn, quản lý và tối ưu chi phí hạ tầng máy chủ ảo AWS | 26/05/2026 | 26/05/2026 | AWS Lambda Developer |
+| 6 | - Thực hành phân bổ nhãn quản lý tài nguyên thông qua Resource Groups và hệ thống Tags <br> - Thực hành cấu hình giới hạn quyền hạn nâng cao cho tài khoản IAM User bằng giải pháp **IAM Permission Boundary** <br> - Thiết lập cơ chế bảo mật mã hóa dữ liệu ở trạng thái lưu trữ tĩnh bằng dịch vụ quản lý khóa **AWS KMS** | 27/05/2026 | 28/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
-
+* Kích hoạt và vận hành thành thạo bảng điều khiển AWS Security Hub, tuân thủ nghiêm ngặt các quy chuẩn bảo mật đám mây hàng đầu: CIS Benchmark, PCI DSS và AWS Best Practices.
+* Làm chủ mô hình Serverless với dịch vụ AWS Lambda, viết code tự động hóa các thao tác quản lý vòng đời và kiểm soát thẻ định danh (Tagging) trên tài nguyên EC2.
+* Nâng cao tính an toàn tài khoản bằng cách thiết lập tường lửa phân quyền IAM Permission Boundary và áp dụng thành công mã hóa dữ liệu lưu trữ (Data at rest) bằng các lớp khóa mật mã sinh ra từ dịch vụ AWS KMS.

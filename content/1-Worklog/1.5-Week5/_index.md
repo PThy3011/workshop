@@ -5,52 +5,24 @@ weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{}
+
 
 
 ### Week 5 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* **Knowledge:** Comprehend bare-metal virtualization layers, on-premises data center node specifications, and cross-platform infrastructure migration methodologies to lift-and-shift local environments onto AWS.
+* **Skills:** Master advanced hypervisor operations on VMware Workstation Pro, administer open-source Linux servers (Ubuntu Desktop), and successfully execute automated cloud migration pipelines.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Evaluate the process of provisioning a standalone local on-premises mock node leveraging the Ubuntu Desktop operating system environment | 15/05/2026 | 15/05/2026 | Infrastructure Lab Manual |
+| 3 | - Download, license, and configure hypervisor hyper-allocations using **VMware Workstation Pro** software on workstation terminals | 16/05/2026 | 17/05/2026 | VMware Administration Guide |
+| 4 | - Execute precise OS kernel allocation and install the Ubuntu environment within the virtualized VMware framework, adjusting local subnet routing tables | 18/05/2026 | 18/05/2026 | Linux OS Reference Docs |
+| 5 | - Audit disk export mechanisms and complete technical image preparation, compress system files, and sanitize image headers for secure importing into AWS cloud environments | 19/05/2026 | 20/05/2026 | AWS Migration Guide |
+| 6 | - Orchestrate the system Cloud Migration: Convert, stream, and deploy local VMware virtual machine disk files directly into the AWS cloud fabric to create a functional running EC2 Instance | 21/05/2026 | 21/05/2026 | AWS Documentation |
 
 ### Week 5 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
-
+* Successfully simulated an active on-premises legacy data center node using VMware Workstation Pro running customized Ubuntu Desktop Linux configurations.
+* Standardized system-wide image transformation workflows, effectively moving system volumes across heterogeneous local disk and cloud formats.
+* Achieved full automated lift-and-shift server migration, successfully re-launching a fully functional on-premises machine as an active online cloud server on AWS.

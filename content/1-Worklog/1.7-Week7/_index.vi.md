@@ -9,50 +9,25 @@ pre: " <b> 1.7. </b> "
 
 
 ### Mục tiêu tuần 7:
+* **Về mặt kiến thức (Knowledge Objectives):**
+  * Tổng hợp và đánh giá toàn diện các chặng đường, cột mốc công nghệ đã đạt được trong suốt quá trình thực tập tại đơn vị FCAJ.
+  * Nghiên cứu phương pháp cấu trúc bài viết kỹ thuật (Technical Blogs) chuẩn quy trình nhằm truyền tải kiến thức công nghệ điện toán đám mây một cách trực quan.
+  * Nắm vững quy trình đóng gói tài liệu, kiểm thử tích hợp cuối kỳ và nghiệm thu sản phẩm phần mềm của dự án nhóm thực tế.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* **Về mặt kỹ năng thực hành (Practical Skills):**
+  * Hoàn thiện hệ thống nhật ký công việc cá nhân (Worklog) chi tiết, chuẩn hóa toàn bộ mốc thời gian từ tuần 1 đến tuần 6.
+  * Phối hợp điều phối, thảo luận và trực tiếp tham gia tối ưu hóa cấu trúc mã nguồn, sửa lỗi hệ thống hạ tầng lõi phục vụ cho đồ án thực tế của nhóm.
+  * Đóng gói trọn vẹn tệp hồ sơ báo cáo kết quả thực tập tốt nghiệp theo đúng quy định nội bộ.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Rà soát dữ liệu, hệ thống lại nội dung và viết hoàn chỉnh nhật ký công việc (Worklog) chi tiết từ tuần 1 đến tuần 6 | 29/05/2026 | 29/05/2026 | Nhật ký cá nhân |
+| 3 | - Biên tập các bài viết chia sẻ chuyên sâu kỹ thuật công nghệ (Blogs) mô tả quá trình thực hành trên AWS để xuất bản lên trang web  | 30/05/2026 | 31/05/2026 | Nội dung thực tập |
+| 4 | - Tổ chức họp nhóm, đánh giá tiến độ tổng kết và phân chia nhiệm vụ tối ưu hóa kiến trúc hạ tầng cho dự án nhóm chung | 01/06/2026 | 01/06/2026 | Tài liệu Dự án Nhóm |
+| 5 | - .. | 02/06/2026 | 03/06/2026 |  |
+| 6 | - .. <br> - .. | 04/06/2026 | 04/06/2026 | .. |
 
 ### Kết quả đạt được tuần 7:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
-
+* Hoàn thành hệ thống nội dung lưu trữ nhật ký thực tập (Worklog) chi tiết và dịch thuật xuất bản các bài viết Blogs chuyên ngành Cloud trên trang web.
+* Đồng phối hợp xây dựng kiến trúc ứng dụng cho sản phẩm công nghệ của nhóm.

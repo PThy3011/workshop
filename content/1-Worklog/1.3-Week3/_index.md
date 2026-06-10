@@ -5,52 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{}
 
 
 ### Week 3 Objectives:
-
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* **Knowledge:** Deeply comprehend Hybrid DNS resolution architectures, bilateral internal networking using VPC Peering, centralized network orchestration via Transit Gateways, and managed automation policies using AWS Backup.
+* **Skills:** Gain proficiency in Infrastructure as Code (IaC) engineering by writing declarative stack blueprints within CloudFormation Templates.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Establish a Hybrid DNS resolution landscape utilizing AWS Route 53 Resolver <br> - Provision secure key pairs and build declarative Infrastructure as Code blueprints using CloudFormation Templates | 01/05/2026 | 02/05/2026 | AWS Documentation |
+| 3 | - Configure firewall layers with AWS Security Groups to restrict data vectors <br> - Deploy secure network termination to an active Remote Desktop Gateway (RDGW) server | 03/05/2026 | 03/05/2026 | AWS Documentation |
+| 4 | - Provision AWS Directory Service for Microsoft Active Directory (Microsoft AD) on the cloud and map active internal authoritative DNS records | 04/05/2026 | 04/05/2026 | AWS Documentation |
+| 5 | - Evaluate routing topology prerequisites and deploy high-speed private networking using **VPC Peering** <br> - Restructure network Route Tables, modify Network ACL packet filtering, and configure virtual routers to optimize connectivity | 05/05/2026 | 06/05/2026 | AWS Documentation |
+| 6 | - Architect an enterprise-scale interconnected mesh network topology through a centralized **AWS Transit Gateway** router <br> - Initialize Transit Gateway Attachments for isolated networks and configure decentralized internal packet forwarding <br> - Build an automated backup governance strategy via **AWS Backup**, setup long-term lifecycle retention rules on S3 Buckets, and perform system-wide disaster recovery failover simulations | 07/05/2026 | 07/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 3 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
-
+* Successfully deployed a functional Hybrid DNS infrastructure using Route 53 Resolver and fully integrated it with cloud-hosted AWS Microsoft Active Directory.
+* Mastered Infrastructure as Code (IaC) principles via **AWS CloudFormation**, automating security firewalls and stack configurations through script templates.
+* Achieved seamless internal private data routing via bilateral VPC Peering and structured highly scalable cloud mesh topologies with AWS Transit Gateways.
+* Standardized disaster recovery practices by scheduling automatic centralized snapshots through AWS Backup onto durable Amazon S3 data vaults, passing system restore verifications.
