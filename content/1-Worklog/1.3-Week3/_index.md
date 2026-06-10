@@ -14,11 +14,11 @@ pre: " <b> 1.3. </b> "
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | - Establish a Hybrid DNS resolution landscape utilizing AWS Route 53 Resolver <br> - Provision secure key pairs and build declarative Infrastructure as Code blueprints using CloudFormation Templates | 01/05/2026 | 02/05/2026 | AWS Documentation |
-| 3 | - Configure firewall layers with AWS Security Groups to restrict data vectors <br> - Deploy secure network termination to an active Remote Desktop Gateway (RDGW) server | 03/05/2026 | 03/05/2026 | AWS Documentation |
-| 4 | - Provision AWS Directory Service for Microsoft Active Directory (Microsoft AD) on the cloud and map active internal authoritative DNS records | 04/05/2026 | 04/05/2026 | AWS Documentation |
+| 2 | - Establish a Hybrid DNS resolution landscape utilizing AWS Route 53 Resolver <br> - Provision secure key pairs and build declarative Infrastructure as Code blueprints using CloudFormation Templates | 01/05/2026 | 02/05/2026 | <https://000010.awsstudygroup.com/> |
+| 3 | - Configure firewall layers with AWS Security Groups to restrict data vectors <br> - Deploy secure network termination to an active Remote Desktop Gateway (RDGW) server | 03/05/2026 | 03/05/2026 | <https://000010.awsstudygroup.com/> |
+| 4 | - Provision AWS Directory Service for Microsoft Active Directory (Microsoft AD) on the cloud and map active internal authoritative DNS records | 04/05/2026 | 04/05/2026 | <https://000010.awsstudygroup.com/> |
 | 5 | - Evaluate routing topology prerequisites and deploy high-speed private networking using **VPC Peering** <br> - Restructure network Route Tables, modify Network ACL packet filtering, and configure virtual routers to optimize connectivity | 05/05/2026 | 06/05/2026 | AWS Documentation |
-| 6 | - Architect an enterprise-scale interconnected mesh network topology through a centralized **AWS Transit Gateway** router <br> - Initialize Transit Gateway Attachments for isolated networks and configure decentralized internal packet forwarding <br> - Build an automated backup governance strategy via **AWS Backup**, setup long-term lifecycle retention rules on S3 Buckets, and perform system-wide disaster recovery failover simulations | 07/05/2026 | 07/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - Architect an enterprise-scale interconnected mesh network topology through a centralized **AWS Transit Gateway** router <br> - Initialize Transit Gateway Attachments for isolated networks and configure decentralized internal packet forwarding <br> - Build an automated backup governance strategy via **AWS Backup**, setup long-term lifecycle retention rules on S3 Buckets, and perform system-wide disaster recovery failover simulations | 07/05/2026 | 07/05/2026 | <https://000020.awsstudygroup.com/> <br> <https://000013.awsstudygroup.com/> |
 
 ### Week 3 Achievements:
 * Successfully deployed a functional Hybrid DNS infrastructure using Route 53 Resolver and fully integrated it with cloud-hosted AWS Microsoft Active Directory.

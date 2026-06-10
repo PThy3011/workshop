@@ -15,11 +15,11 @@ pre: " <b> 1.3. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Thiết lập kiến trúc Hybrid DNS sử dụng dịch vụ Route 53 Resolver <br> - Khởi tạo Key Pair bảo mật và viết cấu trúc hạ tầng dạng mã với CloudFormation Template | 01/05/2026 | 02/05/2026 | AWS Documentation |
-| 3 | - Định cấu hình nhóm tường lửa Security Group để kiểm soát luồng dữ liệu <br> - Thiết lập kết nối đầu cuối đến máy chủ nhảy RDGW (Remote Desktop Gateway) | 03/05/2026 | 03/05/2026 | AWS Documentation |
-| 4 | - Triển khai dịch vụ thư mục Microsoft Active Directory (Microsoft AD) trên nền mây và thiết lập các bản ghi phân giải hệ thống DNS nội bộ | 04/05/2026 | 04/05/2026 | AWS Documentation |
+| 2 | - Thiết lập kiến trúc Hybrid DNS sử dụng dịch vụ Route 53 Resolver <br> - Khởi tạo Key Pair bảo mật và viết cấu trúc hạ tầng dạng mã với CloudFormation Template | 01/05/2026 | 02/05/2026 | <https://000010.awsstudygroup.com/vi/> |
+| 3 | - Định cấu hình nhóm tường lửa Security Group để kiểm soát luồng dữ liệu <br> - Thiết lập kết nối đầu cuối đến máy chủ nhảy RDGW (Remote Desktop Gateway) | 03/05/2026 | 03/05/2026 | <https://000010.awsstudygroup.com/vi/> |
+| 4 | - Triển khai dịch vụ thư mục Microsoft Active Directory (Microsoft AD) trên nền mây và thiết lập các bản ghi phân giải hệ thống DNS nội bộ | 04/05/2026 | 04/05/2026 | <https://000010.awsstudygroup.com/vi/> |
 | 5 | - Nghiên cứu điều kiện tiên quyết và thiết lập kết nối vùng mạng thông suốt qua **VPC Peering** <br> - Định cấu hình bảng định tuyến Route Table, dải bảo mật kiểm soát mạng Network ACL và bộ định tuyến ảo để tối ưu hóa liên kết | 05/05/2026 | 06/05/2026 | AWS Documentation |
-| 6 | - Triển khai mô hình kết nối lưới nâng cao thông qua bộ định tuyến trung tâm **AWS Transit Gateway** <br> - Tạo mối gắn kết tài nguyên mạng Transit Gateway Attachments và thiết lập phân phối luồng đi nội bộ <br> - Xây dựng chiến lược sao lưu dữ liệu tập trung tự động bằng **AWS Backup**, cấu hình lưu trữ vòng đời trên S3 Bucket, kiểm tra và chạy thử nghiệm quy trình khôi phục sự cố | 07/05/2026 | 07/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - Triển khai mô hình kết nối lưới nâng cao thông qua bộ định tuyến trung tâm **AWS Transit Gateway** <br> - Tạo mối gắn kết tài nguyên mạng Transit Gateway Attachments và thiết lập phân phối luồng đi nội bộ <br> - Xây dựng chiến lược sao lưu dữ liệu tập trung tự động bằng **AWS Backup**, cấu hình lưu trữ vòng đời trên S3 Bucket, kiểm tra và chạy thử nghiệm quy trình khôi phục sự cố | 07/05/2026 | 07/05/2026 | <https://000020.awsstudygroup.com/vi/> <br> <https://000013.awsstudygroup.com/vi/>|
 
 ### Kết quả đạt được tuần 3:
 * Triển khai thành công giải pháp Hybrid DNS tích hợp Route 53 Resolver, thiết lập kết nối xác thực Active Directory đồng bộ hóa hạ tầng.
