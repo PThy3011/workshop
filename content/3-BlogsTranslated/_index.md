@@ -1,14 +1,13 @@
 ﻿---
 title: "Translated Blogs"
-date: 2024-01-01
+date: 2026-07-03
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{}
 
-This section will list and introduce the blogs you have translated. For example:
+This section will list and introduce the blogs you have translated. 
 
 
 ### [Blog 1 - Provision Oracle Database@AWS resources using Terraform](3.1-Blog1/)

@@ -1,14 +1,13 @@
 ﻿---
 title: "Các bài blogs đã dịch"
-date: 2024-01-01
+date: 2026-07-03
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
 
-
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã dịch. Ví dụ:
+Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã dịch.
 
 
 ### [Blog 1 - Provision Oracle Database@AWS resources using Terraform](3.1-Blog1/)
