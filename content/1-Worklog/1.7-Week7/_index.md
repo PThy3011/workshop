@@ -24,9 +24,8 @@ pre: " <b> 1.7. </b> "
 | --- | --- | --- | --- | --- |
 | 2 | - Audit personal task records, restructure content, and complete the detailed chronological internship Worklog from Week 1 to Week 6 | 29/05/2026 | 29/05/2026 | Personal Activity Logs |
 | 3 | - Edit deep-dive architectural blog entries detailing AWS practices for website publication | 30/05/2026 | 31/05/2026 | Internship Field Notes |
-| 4 | - Facilitate synchronization team meetings to assess overall progress and delegate infrastructure optimization tasks for the collaborative group project | 01/06/2026 | 01/06/2026 | Joint Project Blueprint |
-| 5 | - .. | 02/06/2026 | 03/06/2026 | |
-| 6 | - .. <br> - .. | 04/06/2026 | 04/06/2026 | .. |
+| 4 - 6 | - Facilitate synchronization team meetings to assess overall progress and delegate infrastructure optimization tasks for the collaborative group project | 01/06/2026 | 01/06/2026 | Joint Project Blueprint |
+
 
 ### Week 7 Achievements:
 * Successfully compiled a comprehensive technical internship Worklog and published localized, specialized Cloud computing blog posts on the website.

@@ -27,12 +27,12 @@ Thông thường và cũng là tiêu chuẩn, một worklog được thực hi�
 
 **Tuần 7:** [Tổng kết nhật ký công việc (Worklog), biên tập các bài viết kỹ thuật (Blogs) và hoàn thiện sản phẩm đồ án nhóm.](1.7-week7/)
 
-**Tuần 8:** [Làm công việc H...](1.8-week8/)
+**Tuần 8:** [Tiếp tục phát triển dự án nhóm.](1.8-week8/)
 
-**Tuần 9:** [Làm công việc I...](1.9-week9/)
+**Tuần 9:** [Hoàn thiện dự án nhóm và áp dụng kiến thức từ AWS Technical Blogs.](1.9-week9/)
 
-**Tuần 10:** [Làm công việc L...](1.10-week10/)
+**Tuần 10:** [Kiểm thử, rà soát và hoàn thiện giải pháp trên AWS.](1.10-week10/)
 
-**Tuần 11:** [Làm công việc M...](1.11-week11/)
+**Tuần 11:** [Hoàn thiện báo cáo thực tập và tổng hợp kết quả đạt được.](1.11-week11/)
 
-**Tuần 12:** [Làm công việc N...](1.12-week12/)
+**Tuần 12:** [Hoàn tất báo cáo, dự án nhóm và tổng kết kỳ thực tập.](1.12-week12/)
