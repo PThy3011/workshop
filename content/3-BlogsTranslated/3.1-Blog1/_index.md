@@ -5,121 +5,267 @@ weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Automating Oracle Database@AWS Deployment with Terraform
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Deploying Oracle database systems in the cloud always requires a balance between performance, scalability, and infrastructure management consistency. With Oracle Database@AWS (ODB@AWS), Oracle has brought the Exadata platform — a hardware system optimized specifically for Oracle Database — directly into AWS data centers. This allows businesses to leverage Oracle’s high performance while taking advantage of AWS’s rich ecosystem of services.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+However, building a complete Oracle Database@AWS environment involves many configuration steps: setting up the ODB Network, deploying Exadata Infrastructure, creating VM Clusters, and connecting to Amazon VPC. Performing these steps manually through the AWS Console is complex, time-consuming, and prone to errors as the number of environments grows.
 
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+In this article, we will explore how to use Terraform to fully automate the deployment of Oracle Database@AWS. Through the Infrastructure as Code (IaC) model, organizations can standardize their infrastructure, minimize configuration errors, and deploy systems quickly and consistently.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Architecture Overview
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Oracle Database@AWS is designed to combine the performance of Oracle Exadata with the scalability and flexibility of AWS. Instead of running Oracle Database on separate infrastructure, businesses can deploy it directly within AWS while still utilizing Exadata’s optimized capabilities.
 
----
+In this model, Terraform acts as the orchestration tool for the entire resource creation process. Infrastructure components are described in HCL code, and Terraform automatically deploys them in the correct dependency order, ensuring consistency across environments.
 
-## Technology Choices and Communication Scope
+The solution consists of four main components:
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+- **ODB Network**: A dedicated network that connects AWS and Oracle Cloud Infrastructure (OCI), providing a private, low-latency connection.
+- **Oracle Exadata Infrastructure**: Exadata hardware deployed directly in an AWS Availability Zone to deliver high-performance data processing.
+- **Exadata VM Cluster**: A cluster of virtual machines running Oracle Grid Infrastructure and Oracle Database.
+- **ODB Peering Connection**: A private network connection between Amazon VPC and the ODB Network, allowing applications on AWS to securely access the Oracle Database.
+
+> *Figure 1. High-level architecture; colored boxes represent individual services.*
+
+Once these components are successfully created, organizations can deploy Oracle Databases with full scalability, high availability, and seamless integration with AWS services.
 
 ---
 
-## The Pub/Sub Hub
+## Why Use Terraform?
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+Terraform is one of the most popular Infrastructure as Code tools today. Instead of manually operating through the AWS Management Console, the entire infrastructure is defined as HCL (HashiCorp Configuration Language) source code. Terraform reads these configuration files and automatically provisions resources in the correct order.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+Adopting Terraform brings many benefits:
 
----
+- Complete automation of infrastructure deployment.
+- Elimination of manual configuration tasks in the AWS Console.
+- Consistent configuration across Development, Testing, and Production environments.
+- Easy change management through Git.
+- Reusable configurations across multiple projects.
+- Ability to scale and update infrastructure without affecting existing resources.
 
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+For organizations deploying multiple Oracle Database systems or practicing DevOps, Terraform significantly reduces deployment time and improves infrastructure control.
 
 ---
 
-## Front Door Microservice
+## Prerequisites
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+Before running Terraform, ensure the following preparations are complete:
+
+### 1. Register for Oracle Database@AWS
+
+Organizations must subscribe to Oracle Database@AWS through AWS Marketplace and complete the onboarding process with Oracle.
+
+### 2. Account Linking
+
+The AWS Account must be linked with an Oracle Cloud Infrastructure (OCI) Tenancy so Terraform can manage resources across both platforms.
+
+### 3. Configure Terraform Providers
+
+Terraform requires configuration of two providers:
+- AWS Provider
+- OCI Provider
+
+These providers allow Terraform to communicate with the APIs of both AWS and Oracle Cloud.
+
+### 4. Set Up IAM Permissions
+
+The account used by Terraform must have sufficient permissions to create, update, and delete resources on both AWS and Oracle Cloud.
+
+Once these prerequisites are met, administrators can begin deploying Oracle Database@AWS infrastructure using Terraform.
 
 ---
 
-## Staging ER7 Microservice
+## Deployment Process with Terraform
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+Terraform creates Oracle Database@AWS components in the correct dependency order. Each component is defined as a Terraform Resource.
+
+### Step 1: Create ODB Network
+
+The first step is to create the Oracle Database Network, which establishes a private connection between AWS and Oracle Cloud Infrastructure.
+
+Example Terraform configuration:
+
+```hcl
+resource "aws_odb_network" "example" {
+  display_name         = "odb-my-net"
+  availability_zone_id = "use1-az6"
+  client_subnet_cidr   = "10.2.0.0/24"
+  backup_subnet_cidr   = "10.2.1.0/24"
+  s3_access            = "DISABLED"
+  zero_etl_access      = "DISABLED"
+  tags = {
+    "env" = "dev"
+  }
+}
+...
+```
+VM Cluster is the environment where Oracle Database is deployed and operated.
+
+Within the VM Cluster, administrators can configure:
+
+- Number of CPU cores
+- Memory allocation
+- Oracle Grid Infrastructure
+- Oracle Home
+- Oracle Database version
+
+By defining these configurations in Terraform, the infrastructure becomes reusable, version-controlled, and easier to maintain across multiple environments.
+
+### Step 4. Configure the ODB Peering Connection
+
+After the Oracle Database Infrastructure has been provisioned, the final step is to establish a network connection between the Amazon VPC and the ODB Network.
+
+```hcl
+resource "aws_odb_network_peering_connection" "example" {
+  display_name    = "example-peering"
+  odb_network_id  = "<odb-network-id>"
+  peer_network_id = "<vpc-id>"
+
+  tags = {
+    "env" = "dev"
+  }
+}
+```
+
+The ODB Peering Connection enables applications running on Amazon EC2, Amazon ECS, or Amazon EKS to securely access Oracle Database through a private network connection, reducing latency while enhancing security.
+
+Once this step is completed, the Oracle Database@AWS infrastructure is fully provisioned and ready for database deployment.
 
 ---
 
-## New Features in the Solution
+## Architecture After Deployment
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+After Terraform completes the provisioning process, the entire Oracle Database@AWS infrastructure is created automatically according to the dependency relationships defined in the configuration. Terraform manages these dependencies internally, eliminating the need for manual configuration through the AWS Management Console.
 
+The deployed architecture consists of the following components:
+
+| Component | Description |
+|-----------|-------------|
+| ODB Network | Establishes a private network connection between AWS and Oracle Cloud Infrastructure (OCI). |
+| Oracle Exadata Infrastructure | Provides the Exadata hardware infrastructure required to run Oracle Database. |
+| Oracle Exadata VM Cluster | Hosts Oracle Grid Infrastructure and Oracle Database instances. |
+| ODB Peering Connection | Connects the Amazon VPC to the ODB Network, enabling secure database access. |
+| AWS Provider | Manages AWS resources during deployment. |
+| OCI Provider | Manages Oracle Cloud Infrastructure resources. |
+
+All resources are tracked through the **Terraform State**, allowing administrators to monitor infrastructure status, apply updates, and scale the environment efficiently.
+
+---
+
+## Deploying the Solution with Terraform
+
+AWS provides a sample Terraform project that simplifies the deployment of Oracle Database@AWS resources.
+
+First, clone the sample repository:
+
+```bash
+git clone https://github.com/aws-samples/sample-odb-launch-using-terraform.git
+
+cd sample-odb-launch-using-terraform
+```
+
+Next, initialize Terraform:
+
+```bash
+terraform init
+```
+
+This command downloads the required providers, including the AWS Provider and OCI Provider.
+
+Before provisioning the infrastructure, review the execution plan:
+
+```bash
+terraform plan
+```
+
+Terraform analyzes the configuration files and displays the resources that will be created, modified, or destroyed.
+
+If the plan is correct, deploy the infrastructure using:
+
+```bash
+terraform apply
+```
+
+Terraform provisions the resources in the following order:
+
+1. Create the ODB Network.
+2. Provision the Oracle Exadata Infrastructure.
+3. Create the Oracle Exadata VM Cluster.
+4. Configure the ODB Peering Connection.
+5. Update the Terraform State.
+
+After the deployment is complete, the Oracle Database@AWS environment is ready for database provisioning and application connectivity.
+
+---
+
+## Best Practices for Using Terraform
+
+For enterprise Oracle Database deployments, AWS recommends following several best practices to improve infrastructure reliability and maintainability.
+
+### 1. Always Run `terraform plan` Before `terraform apply`
+
+Reviewing the execution plan helps identify unexpected infrastructure changes before they affect production environments.
+
+### 2. Store Terraform State Remotely
+
+Avoid storing the `terraform.tfstate` file on a local machine.
+
+Instead, use:
+
+- Amazon S3 to store the Terraform State.
+- Amazon DynamoDB for state locking.
+
+This approach enables multiple team members to collaborate safely without causing state conflicts.
+
+### 3. Manage Infrastructure as Source Code
+
+Store Terraform configurations in a version control system such as GitHub or GitLab to:
+
+- Track infrastructure changes.
+- Perform code reviews.
+- Restore previous configurations when necessary.
+- Integrate with CI/CD pipelines.
+
+### 4. Separate Deployment Environments
+
+Use Terraform variables or workspaces to isolate different environments, including:
+
+- Development
+- Testing
+- Staging
+- Production
+
+Separating environments reduces deployment risks and simplifies infrastructure management.
+
+### 5. Avoid Manual Changes in the AWS Console
+
+Once Infrastructure as Code has been adopted, infrastructure changes should be made exclusively through Terraform instead of directly in the AWS Management Console. This helps prevent **configuration drift** and ensures that deployed resources remain consistent with the source code.
+
+---
+
+## Target Audience
+
+The Oracle Database@AWS and Terraform solution is well suited for several technical roles:
+
+- **Database Administrators (DBAs):** Automate Oracle Database deployment and administration.
+- **Cloud Engineers:** Standardize Oracle infrastructure using Infrastructure as Code.
+- **DevOps Engineers:** Integrate database deployment into CI/CD pipelines.
+- **Enterprise Architects:** Design scalable, maintainable Oracle Database infrastructure.
+- **Enterprise Organizations:** Migrate Oracle Database workloads from on-premises environments to AWS while maintaining the high performance of Oracle Exadata.
+
+---
+
+## Conclusion
+
+Oracle Database@AWS introduces a modern approach to deploying Oracle Database on AWS by combining the performance of Oracle Exadata with the flexibility and scalability of AWS services. However, provisioning the required infrastructure involves multiple interconnected components and requires a consistent deployment process.
+
+Terraform addresses these challenges through the **Infrastructure as Code (IaC)** approach, allowing infrastructure to be defined, deployed, and managed using code rather than manual configuration. By automating resource provisioning, version-controlling infrastructure, and enabling configuration reuse, Terraform significantly reduces deployment time while improving operational consistency and reliability.
+
+For organizations building new Oracle Database environments or modernizing existing infrastructure on AWS, combining Oracle Database@AWS with Terraform provides a scalable, repeatable, and efficient deployment strategy that simplifies long-term infrastructure management.
+
+To learn more about this solution and access the sample Terraform project, refer to the official AWS Database Blog and the AWS sample repository on GitHub.
