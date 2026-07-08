@@ -102,7 +102,7 @@ resource "aws_odb_network" "example" {
     "env" = "dev"
   }
 }
-...
+
 ```
 VM Cluster is the environment where Oracle Database is deployed and operated.
 
@@ -115,6 +115,87 @@ Within the VM Cluster, administrators can configure:
 - Oracle Database version
 
 By defining these configurations in Terraform, the infrastructure becomes reusable, version-controlled, and easier to maintain across multiple environments.
+
+### Step 2. Provision Oracle Exadata Infrastructure
+
+Next, Terraform provisions the Oracle Exadata Infrastructure, which provides the dedicated hardware platform required to run Oracle Database with high performance and availability.
+
+```hcl
+resource "aws_odb_cloud_exadata_infrastructure" "example" {
+  display_name         = "my-exa-infra"
+  availability_zone    = "use1-az6"
+  shape                = "exadata.oci.x11m"
+  database_server_type = "X11M"
+  storage_server_type  = "X11M-HC"
+
+  maintenance_window {
+    custom_action_timeout_in_mins     = 16
+    days_of_week                      = [{ name = "MONDAY" }, { name = "TUESDAY" }]
+    hours_of_day                      = [11, 16]
+    is_custom_action_timeout_enabled  = true
+    lead_time_in_weeks                = 3
+    months                            = [{ name = "FEBRUARY" }, { name = "MAY" }, { name = "AUGUST" }, { name = "NOVEMBER" }]
+    patching_mode                     = "ROLLING"
+    preference                        = "CUSTOM_PREFERENCE"
+    weeks_of_month                    = [2, 4]
+  }
+
+  tags = {
+    "env" = "dev"
+  }
+}
+```
+
+Oracle Exadata Infrastructure serves as the foundation for running Oracle Database workloads by providing dedicated Exadata hardware resources.
+
+At this stage, administrators can customize several infrastructure settings, including:
+
+- Compute node configuration
+- Storage server configuration
+- Storage capacity
+- Availability Zone
+- Maintenance window preferences
+
+Terraform automatically associates the Exadata Infrastructure with the ODB Network created in the previous step, ensuring that all infrastructure components are deployed in the correct dependency order.
+
+### Step 3. Create the Oracle Exadata VM Cluster
+
+Once the Oracle Exadata Infrastructure is available, Terraform proceeds to create the Oracle Exadata VM Cluster.
+
+```hcl
+resource "aws_odb_cloud_vm_cluster" "example" {
+  display_name                    = "my-vm-cluster"
+  cloud_exadata_infrastructure_id = "<exadata-infra-id>"
+  odb_network_id                  = "<odb-network-id>"
+  cpu_core_count                  = 6
+  gi_version                      = "23.0.0.0"
+  hostname_prefix                 = "apollo12"
+  ssh_public_keys                 = ["your-ssh-public-key"]
+  license_model                   = "LICENSE_INCLUDED"
+  data_storage_size_in_tbs        = 20.0
+  db_servers                      = ["db-server-1", "db-server-2"]
+  db_node_storage_size_in_gbs     = 120.0
+  memory_size_in_gbs              = 60
+
+  tags = {
+    "env" = "dev"
+  }
+}
+```
+
+The Oracle Exadata VM Cluster is the environment where Oracle Database is deployed and managed.
+
+Within the VM Cluster, administrators can configure several database resources, including:
+
+- Number of CPU cores
+- Memory allocation
+- Oracle Grid Infrastructure version
+- Oracle Home configuration
+- Oracle Database version
+- Database storage capacity
+- SSH public keys for administrative access
+
+By defining these settings in Terraform, the infrastructure becomes version-controlled, reusable, and consistent across multiple environments, making future deployments and maintenance significantly easier.
 
 ### Step 4. Configure the ODB Peering Connection
 

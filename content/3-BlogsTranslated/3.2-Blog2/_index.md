@@ -5,121 +5,94 @@ weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
+
 {}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Cara Pioneers Domain-Specific AI for Enterprise Insurance Brokerages with AWS
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+The global insurance industry is valued at $8 trillion and is heavily burdened by manual processes and a growing talent shortage. **Cara**, an AI-native solution built on AWS, is transforming how insurance brokerages operate by automating complex back-office workflows.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
-
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+This blog explores Cara’s journey in building a domain-specific AI platform for the insurance brokerage industry, its technical architecture, and the business impact it delivers.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## The Challenge in Insurance Brokerage
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Insurance agents spend countless hours on repetitive tasks such as:
+- Completing insurance applications
+- Analyzing and comparing policy coverages
+- Re-keying data across multiple systems
+- Coordinating information between clients and carriers
 
----
-
-## Technology Choices and Communication Scope
-
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+With a persistent talent shortage, brokerages need to scale revenue without proportionally increasing headcount. Generic AI tools fall short in this highly regulated industry, where precision, auditability, compliance, and handling of sensitive data (PII, financial records, and underwriting details) are non-negotiable.
 
 ---
 
-## The Pub/Sub Hub
+## Cara’s Origin Story
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+Cara’s founders — Vic Yeh, Nikhil Kansal, and Jon Patel — previously built and successfully sold a digital insurance brokerage to The McGowan Companies. During that journey, they developed an internal AI copilot powered by large language models (LLMs). The tool significantly reduced turnaround times, improved accuracy, and streamlined agent workflows. Encouraged by its success, they turned the concept into a standalone product: **Cara**.
 
 ---
 
-## Core Microservice
+## Solution Architecture on AWS
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+Cara was designed with a strong focus on **security, scalability, and regulatory compliance**. Its architecture includes the following key components:
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+### 1. Compute and Orchestration
+- Powered by **Amazon Elastic Kubernetes Service (Amazon EKS)** for container orchestration across multiple Availability Zones.
+- Supports elastic scaling to handle peak periods such as policy renewals.
+- Each customer (tenant) runs in isolated namespaces for strong data separation.
 
----
+### 2. AI and Inference Layer
+- Uses **Amazon Bedrock** to access foundation models through a fully managed API — eliminating the need to manage GPU infrastructure.
+- Key AI capabilities include:
+  - Coverage and quote intelligence (comparing carrier quotes and highlighting gaps)
+  - Automated form filling for ACORD and supplemental forms
+  - Generation of branded proposals and renewal documents
+  - Knowledge-driven workflows referencing agency guidelines, carrier appetites, and historical data
 
-## Front Door Microservice
+### 3. Security and Data Isolation
+- Account-level isolation for each brokerage
+- Complete data and workload separation
+- Encryption at rest and in transit
+- Integration with AWS Identity and Access Management (IAM)
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+### 4. System Integrations
+Cara seamlessly integrates with leading Agency Management Systems (AMS) and CRM platforms, reducing duplicate data entry.
 
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+> *Figure 1. High-level architecture of Cara on AWS.*
 
 ---
 
-## New Features in the Solution
+## Business Outcomes
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Cara has delivered impressive measurable results for enterprise insurance brokerages:
 
+| Metric                        | Result |
+|-------------------------------|--------|
+| Time saved per user           | ~10 hours per week |
+| Onboarding speed              | Brokerages onboarded in hours, custom workflows live in days |
+| Concurrent capacity           | Thousands of concurrent users and workflows |
+| Adoption                      | Used by hundreds of leading insurance agencies and brokerages |
+
+These outcomes are driven by deep domain-specific automation and contextual knowledge retrieval tailored to each organization.
+
+---
+
+## Looking Forward
+
+The insurance industry is still in the early stages of AI adoption. Cara continues to expand its intelligent workflows across sales, servicing, and operations.
+
+> “We are thrilled to push the boundaries of domain-specific AI in real-world insurance use cases with AWS,” says Vic Yeh, CEO of Cara. “Our goal is to help insurance professionals return to the core of our industry — building relationships.”
+
+---
+
+## Conclusion
+
+Cara demonstrates the power of combining domain expertise with cloud-native AI services. By leveraging **Amazon EKS** for orchestration and **Amazon Bedrock** for inference, Cara has built a secure, scalable, and highly effective AI platform tailored for enterprise insurance brokerages.
+
+This solution not only reduces operational costs and manual effort but also allows insurance professionals to focus on what matters most: client relationships.
+
+To learn more about Cara, visit [www.getcara.ai](https://www.getcara.ai/). Organizations interested in building AI-powered applications on AWS can get started with Amazon Bedrock and Amazon EKS.
+
+---

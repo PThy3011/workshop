@@ -1,109 +1,83 @@
 ﻿---
-title: "Blog 1"
+title: "Blog 3"
 date: 2024-01-01
 weight: 1
 chapter: false
-pre: " <b> 3.1. </b> "
+pre: " <b> 3.3. </b> "
 ---
 
+{}
 
-# Tự động hóa triển khai Oracle Database@AWS bằng Terraform
+# Xây dựng LunaGENZ – Hệ thống Thần Số Học cá nhân hóa trên kiến trúc Serverless AWS kết hợp Generative AI
 
-Việc triển khai các hệ thống cơ sở dữ liệu Oracle trên nền tảng đám mây luôn là bài toán đòi hỏi sự cân bằng giữa hiệu năng, khả năng mở rộng và tính nhất quán trong quản lý hạ tầng. Với Oracle Database@AWS (ODB@AWS), Oracle đã mang nền tảng Exadata – hệ thống phần cứng được tối ưu dành riêng cho Oracle Database – vào trực tiếp trung tâm dữ liệu của AWS, cho phép doanh nghiệp khai thác hiệu năng cao của Oracle đồng thời tận dụng hệ sinh thái dịch vụ phong phú của AWS.
+Sau một thời gian học tập và thực hành, team chúng mình đã hoàn thành đồ án cuối khóa: **LunaGENZ** – một hệ thống sử dụng AI để luận giải Thần số học một cách cá nhân hóa và chuyên sâu.
 
-Tuy nhiên, để xây dựng hoàn chỉnh một môi trường Oracle Database@AWS, người quản trị phải thực hiện nhiều bước cấu hình như thiết lập ODB Network, triển khai Exadata Infrastructure, tạo VM Cluster và kết nối với Amazon VPC. Nếu thực hiện hoàn toàn trên AWS Console, quy trình này khá phức tạp, mất nhiều thời gian và dễ xảy ra sai sót khi số lượng môi trường triển khai tăng lên.
-
-Trong bài viết này, chúng ta sẽ tìm hiểu cách sử dụng Terraform để tự động hóa toàn bộ quá trình triển khai Oracle Database@AWS. Thông qua mô hình Infrastructure as Code (IaC), doanh nghiệp có thể chuẩn hóa hạ tầng, giảm thiểu lỗi cấu hình và triển khai hệ thống một cách nhanh chóng, nhất quán.
-
----
-
-## Hướng dẫn kiến trúc
-
-Oracle Database@AWS được thiết kế để kết hợp hiệu năng của Oracle Exadata với khả năng mở rộng và tính linh hoạt của AWS. Thay vì vận hành Oracle Database trên hạ tầng riêng biệt, doanh nghiệp có thể triển khai trực tiếp trên cơ sở hạ tầng AWS nhưng vẫn sử dụng các tính năng tối ưu của Exadata.
-
-Trong mô hình này, Terraform đóng vai trò là công cụ điều phối toàn bộ quá trình tạo tài nguyên. Các thành phần hạ tầng được mô tả bằng mã nguồn HCL và được Terraform tự động triển khai theo đúng thứ tự phụ thuộc, giúp đảm bảo tính nhất quán giữa các môi trường.
-
-Giải pháp bao gồm bốn thành phần chính:
-
-- ODB Network: Mạng chuyên dụng kết nối giữa AWS và Oracle Cloud Infrastructure (OCI), cung cấp đường truyền riêng có độ trễ thấp.
-- Oracle Exadata Infrastructure: Hạ tầng phần cứng Exadata được triển khai trực tiếp trong Availability Zone của AWS để cung cấp khả năng xử lý dữ liệu hiệu năng cao.
-- Exadata VM Cluster: Cụm máy ảo chạy Oracle Grid Infrastructure và Oracle Database.
-- ODB Peering Connection: Kết nối mạng riêng giữa Amazon VPC và ODB Network, cho phép các ứng dụng trên AWS truy cập Oracle Database một cách an toàn.
-
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
-
-Sau khi các thành phần trên được tạo thành công, doanh nghiệp có thể triển khai Oracle Database với đầy đủ khả năng mở rộng, tính sẵn sàng cao và khả năng tích hợp với các dịch vụ AWS.
+Bài viết này không chỉ ghi lại hành trình phát triển mà còn chia sẻ những quyết định kiến trúc, thách thức đã gặp phải cùng cách giải quyết. Hy vọng những kinh nghiệm này sẽ hữu ích cho các bạn đang làm dự án Serverless hoặc tích hợp Generative AI.
 
 ---
 
-## Vì sao nên sử dụng Terraform?
+## 1. Lý do chọn kiến trúc Serverless
 
-Terraform là một trong những công cụ Infrastructure as Code phổ biến nhất hiện nay. Thay vì thao tác trực tiếp trên giao diện quản trị AWS, toàn bộ hạ tầng được mô tả dưới dạng mã nguồn HCL (HashiCorp Configuration Language). Terraform sẽ đọc các tệp cấu hình này và tự động tạo tài nguyên theo đúng trình tự phụ thuộc.
+Với một dự án sinh viên không có nguồn thu ổn định, mục tiêu quan trọng nhất là **giảm thiểu chi phí vận hành** và **không muốn quản lý server**. Vì vậy, team quyết định đi theo hướng Serverless hoàn toàn:
 
-Việc áp dụng Terraform mang lại nhiều lợi ích:
+- **Frontend**: Next.js, triển khai qua **AWS Amplify**
+- **Backend**: **API Gateway** + **AWS Lambda**
+- **Database**: **Amazon DynamoDB** (On-demand mode)
 
-- Tự động hóa hoàn toàn quá trình triển khai hạ tầng.
-- Loại bỏ các thao tác cấu hình thủ công trên AWS Console.
-- Đảm bảo cấu hình đồng nhất giữa các môi trường Development, Testing và Production.
-- Dễ dàng quản lý thay đổi thông qua Git.
-- Có thể tái sử dụng cấu hình cho nhiều dự án khác nhau.
-- Hỗ trợ mở rộng và cập nhật hạ tầng mà không ảnh hưởng đến các tài nguyên hiện có.
-
-Đối với các tổ chức triển khai nhiều hệ thống Oracle Database hoặc áp dụng DevOps, Terraform giúp giảm đáng kể thời gian triển khai và tăng khả năng kiểm soát hạ tầng.
+Mô hình pay-as-you-go giúp chi phí hạ tầng gần như bằng không trong giai đoạn phát triển và test. Đây là lựa chọn phù hợp nhất với quy mô và ngân sách hiện tại của dự án.
 
 ---
 
-## Điều kiện trước khi triển khai
+## 2. Giải quyết vấn đề Timeout với Amazon SQS
 
-Trước khi chạy Terraform, cần đảm bảo đã hoàn tất các bước chuẩn bị sau:
+Một trong những vấn đề lớn nhất lúc đầu là **timeout**. Vì quy trình bao gồm gọi AI sinh nội dung + xuất file PDF khá tốn thời gian, hệ thống thường xuyên gặp lỗi do API Gateway giới hạn **29 giây** cho một request.
 
-### 1 Đăng ký Oracle Database@AWS
+**Giải pháp**: Áp dụng kiến trúc asynchronous processing.
 
-Doanh nghiệp cần đăng ký dịch vụ Oracle Database@AWS thông qua AWS Marketplace và hoàn tất quy trình Onboarding với Oracle.
+- Khi người dùng gửi request → Lambda chỉ đẩy message vào **Amazon SQS** và trả về ngay phản hồi “Đang xử lý”.
+- Một Lambda worker (trigger bởi SQS) sẽ lấy message ra, gọi Generative AI, sinh nội dung, tạo PDF và gửi kết quả qua **Amazon SES** đến email người dùng.
 
-### 2 Liên kết tài khoản
-
-AWS Account phải được liên kết với Oracle Cloud Infrastructure (OCI Tenancy) để Terraform có quyền quản lý tài nguyên trên cả hai nền tảng.
-
-  1. Cấu hình Terraform Provider
-
-Terraform cần cấu hình đồng thời hai Provider:
-- AWS Provider
-- OCI Provider
-
-Hai Provider này cho phép Terraform giao tiếp với API của AWS và Oracle Cloud.
-
-### 3 Thiết lập quyền IAM
-
-Tài khoản sử dụng Terraform cần có đầy đủ quyền tạo, cập nhật và xóa tài nguyên trên AWS cũng như Oracle Cloud.
-
-Sau khi hoàn tất các điều kiện trên, người quản trị có thể bắt đầu triển khai hạ tầng Oracle Database@AWS bằng Terraform.
+Nhờ đó, hệ thống không còn bị timeout, trải nghiệm người dùng tốt hơn và giảm nguy cơ mất dữ liệu khi có lỗi.
 
 ---
 
-## Quy trình triển khai bằng Terraform
+## 3. Lựa chọn mô hình AI
 
-Terraform sẽ tạo các thành phần của Oracle Database@AWS theo đúng trình tự phụ thuộc. Mỗi thành phần được định nghĩa dưới dạng một Resource trong Terraform.
+Team chọn **Claude 3 Haiku** qua **Amazon Bedrock** thay vì các model lớn hơn (như Claude 3 Opus hoặc Sonnet). Lý do:
 
-### Bước 1. Khởi tạo ODB Network
+- Bài toán luận giải Thần số học bằng tiếng Việt không đòi hỏi reasoning quá phức tạp.
+- Model nhỏ cho tốc độ phản hồi nhanh hơn và chi phí thấp hơn đáng kể.
+- Vẫn đảm bảo chất lượng đầu ra tốt với prompt được tối ưu.
 
-### 
+---
 
-Bước đầu tiên là tạo Oracle Database Network, đóng vai trò thiết lập kết nối mạng riêng giữa AWS và Oracle Cloud Infrastructure.
+## 4. Bảo mật, Tích hợp Thanh toán và CI/CD
 
-Ví dụ cấu hình Terraform:
+- Tách biệt luồng **thanh toán** thành Webhook Handler riêng để tăng tính an toàn.
+- Lưu trữ các secret (API keys, Bedrock credentials…) trong **AWS Secrets Manager**.
+- Triển khai tự động toàn bộ frontend + backend qua **GitLab CI/CD**.
+- Giám sát log, lỗi và performance thông qua **Amazon CloudWatch**.
 
+---
 
-resource "aws_odb_network" "example" {
-  display_name         = "odb-my-net"
-  availability_zone_id = "use1-az6"
-  client_subnet_cidr   = "10.2.0.0/24"
-  backup_subnet_cidr   = "10.2.1.0/24"
-  s3_access            = "DISABLED"
-  zero_etl_access      = "DISABLED"
-  tags = {
-    "env" = "dev"
-  }
-}
+## Những bài học rút ra
 
+Đây là dự án đầu tiên team áp dụng Serverless ở quy mô khá đầy đủ, nên vẫn còn một số hạn chế:
+
+- Xử lý lỗi retry khi Lambda worker fail chưa tối ưu.
+- Chưa có cơ chế kiểm soát chi phí chặt chẽ khi traffic tăng cao.
+- Cần cải thiện trải nghiệm người dùng khi xử lý asynchronous (ví dụ: thêm polling status hoặc WebSocket thông báo).
+
+Tuy nhiên, qua dự án này, team đã học được rất nhiều về việc thiết kế hệ thống scalable, chi phí hiệu quả và cách tích hợp Generative AI một cách thực tế.
+
+---
+
+## Kết luận
+
+**LunaGENZ** là minh chứng rằng với các dịch vụ Serverless của AWS (Amplify, Lambda, API Gateway, SQS, Bedrock, DynamoDB…), sinh viên và developer cá nhân hoàn toàn có thể xây dựng được những sản phẩm có tính thực tiễn cao mà không tốn quá nhiều chi phí ban đầu.
+
+Chúng mình rất mong nhận được góp ý từ cộng đồng để tiếp tục cải tiến LunaGENZ trong thời gian tới.
+
+Cảm ơn mọi người đã đọc bài viết!
+
+---

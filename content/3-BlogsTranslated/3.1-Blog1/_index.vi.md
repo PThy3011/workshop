@@ -66,7 +66,7 @@ Doanh nghiệp cần đăng ký dịch vụ Oracle Database@AWS thông qua AWS M
 
 AWS Account phải được liên kết với Oracle Cloud Infrastructure (OCI Tenancy) để Terraform có quyền quản lý tài nguyên trên cả hai nền tảng.
 
-  1. Cấu hình Terraform Provider
+Cấu hình Terraform Provider
 
 Terraform cần cấu hình đồng thời hai Provider:
 - AWS Provider
@@ -104,7 +104,7 @@ resource "aws_odb_network" "example" {
     "env" = "dev"
   }
 }
-...
+
 ```
 
 #### Trong cấu hình trên:
@@ -143,7 +143,7 @@ resource "aws_odb_cloud_exadata_infrastructure" "example" {
     "env" = "dev"
   }
 }
-...
+
 ```
 
 Oracle Exadata Infrastructure cung cấp nền tảng phần cứng chuyên dụng để vận hành Oracle Database với hiệu năng cao.
@@ -178,7 +178,7 @@ resource "aws_odb_cloud_vm_cluster" "example" {
     "env" = "dev"
   }
 }
-...
+
 ```
 
 VM Cluster là môi trường trực tiếp chạy Oracle Database.
