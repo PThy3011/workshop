@@ -92,21 +92,20 @@ Bước đầu tiên là tạo Oracle Database Network, đóng vai trò thiết 
 
 Ví dụ cấu hình Terraform:
 
+```hcl
 resource "aws_odb_network" "example" {
-
-  display_name         = "odb-my-network"
+  display_name         = "odb-my-net"
   availability_zone_id = "use1-az6"
-
-  client_subnet_cidr = "10.2.0.0/24"
-  backup_subnet_cidr = "10.2.1.0/24"
-
-  s3_access       = "ENABLED"
-  zero_etl_access = "ENABLED"
-
+  client_subnet_cidr   = "10.2.0.0/24"
+  backup_subnet_cidr   = "10.2.1.0/24"
+  s3_access            = "DISABLED"
+  zero_etl_access      = "DISABLED"
   tags = {
-    environment = "dev"
+    "env" = "dev"
   }
 }
+...
+```
 
 #### Trong cấu hình trên:
 
@@ -122,13 +121,30 @@ Sau khi hoàn thành bước này, toàn bộ các tài nguyên Oracle Database 
 
 Tiếp theo, Terraform khởi tạo hạ tầng phần cứng Exadata.
 
-resource "aws_oracle_odb_cloud_exadata_infrastructure" "example" {
-
-  display_name = "production-exadata"
-
-  odb_network_id = aws_odb_network.example.id
-
+```hcl
+resource "aws_odb_cloud_exadata_infrastructure" "example" {
+  display_name         = "my-exa-infra"
+  availability_zone    = "use1-az6"
+  shape                = "exadata.oci.x11m"
+  database_server_type = "X11M"
+  storage_server_type  = "X11M-HC"
+  maintenance_window {
+    custom_action_timeout_in_mins = 16
+    days_of_week = [{ name = "MONDAY" }, { name = "TUESDAY" }]
+    hours_of_day = [11, 16]
+    is_custom_action_timeout_enabled = true
+    lead_time_in_weeks = 3
+    months = [{ name = "FEBRUARY" }, { name = "MAY" }, { name = "AUGUST" }, { name = "NOVEMBER" }]
+    patching_mode = "ROLLING"
+    preference = "CUSTOM_PREFERENCE"
+    weeks_of_month = [2, 4]
+  }
+  tags = {
+    "env" = "dev"
+  }
 }
+...
+```
 
 Oracle Exadata Infrastructure cung cấp nền tảng phần cứng chuyên dụng để vận hành Oracle Database với hiệu năng cao.
 
@@ -144,14 +160,26 @@ Terraform sẽ tự động liên kết Exadata Infrastructure với ODB Network
 ### Bước 3. Khởi tạo Exadata VM Cluster
 Sau khi Exadata Infrastructure sẵn sàng, Terraform tiếp tục triển khai VM Cluster.
 
-resource "aws_oracle_odb_cloud_vm_cluster" "example" {
-
-  display_name = "production-vm-cluster"
-
-  cloud_exadata_infrastructure_id =
-  aws_oracle_odb_cloud_exadata_infrastructure.example.id
-
+```hcl
+resource "aws_odb_cloud_vm_cluster" "example" {
+  display_name                    = "my-vm-cluster"
+  cloud_exadata_infrastructure_id = "<exadata-infra-id>"
+  odb_network_id                  = "<odb-network-id>"
+  cpu_core_count                  = 6
+  gi_version                      = "23.0.0.0"
+  hostname_prefix                 = "apollo12"
+  ssh_public_keys                 = ["your-ssh-public-key"]
+  license_model                   = "LICENSE_INCLUDED"
+  data_storage_size_in_tbs        = 20.0
+  db_servers                      = ["db-server-1", "db-server-2"]
+  db_node_storage_size_in_gbs     = 120.0
+  memory_size_in_gbs              = 60
+  tags = {
+    "env" = "dev"
+  }
 }
+...
+```
 
 VM Cluster là môi trường trực tiếp chạy Oracle Database.
 
@@ -169,56 +197,23 @@ Nhờ Terraform, toàn bộ các thông số này được lưu trữ dưới d�
 
 Sau khi Oracle Database Infrastructure được tạo, bước cuối cùng là thiết lập kết nối mạng giữa Amazon VPC và ODB Network.
 
-resource "aws_oracle_odb_peering_connection" "example" {
-
-  display_name = "production-peering"
-
-  odb_network_id = aws_odb_network.example.id
-
+```hcl
+resource "aws_odb_network_peering_connection" "example" {
+  display_name   = "example-peering"
+  odb_network_id = "<odb-network-id>"
+  peer_network_id = "<vpc-id>"
+  tags = {
+    "env" = "dev"
+  }
 }
+...
+```
 
 Peering Connection cho phép các ứng dụng triển khai trên Amazon EC2, Amazon ECS hoặc Amazon EKS truy cập Oracle Database thông qua kết nối mạng riêng, giảm độ trễ và tăng cường bảo mật.
 
 Sau khi Terraform hoàn tất bước này, toàn bộ hạ tầng Oracle Database@AWS đã sẵn sàng để triển khai và vận hành cơ sở dữ liệu.
 
 --- 
-
-## Kiến trúc sau khi triển khai 
-
-Sau khi Terraform hoàn tất, hệ thống sẽ bao gồm các thành phần sau:
-
-| Thành phần                               | Vai trò                                                                                    |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| ODB Network                              | Kết nối mạng riêng giữa AWS và OCI                                                         |
-| ODB Network                              | Cung cấp hạ tầng phần cứng Oracle Exadata                                                  |
-| VM Cluster                               | Môi trường vận hành Oracle Database                                                        |
-| ODB Peering Connection                   | Kết nối Amazon VPC với Oracle Database                                                     |
-| AWS Provider & OCI Provider              | Quản lý và điều phối tài nguyên trên hai nền tảng                                          |
-
-Toàn bộ quy trình triển khai được thực hiện hoàn toàn tự động, giúp giảm thiểu tối đa sự can thiệp của con người.
----
-
-## Đối tượng phù hợp  
-
-Giải pháp này đặc biệt phù hợp với các nhóm kỹ thuật đang quản lý hệ thống Oracle Database quy mô lớn.
-
-- Database Administrator (DBA): Tự động hóa quá trình triển khai và quản lý Oracle Database.
-- Cloud Engineer: Chuẩn hóa hạ tầng Oracle Database theo mô hình Infrastructure as Code.
-- DevOps Engineer: Tích hợp triển khai cơ sở dữ liệu vào quy trình CI/CD.
-- Doanh nghiệp Enterprise: Chuyển đổi hệ thống Oracle Database từ On-premises lên AWS nhưng vẫn đảm bảo hiệu năng cao của Oracle Exadata.
----
-
-## Kết luận
-
-Oracle Database@AWS mở ra một hướng tiếp cận mới cho việc triển khai Oracle Database trên nền tảng đám mây, kết hợp sức mạnh của Oracle Exadata với khả năng mở rộng của AWS. Tuy nhiên, cùng với lợi ích về hiệu năng là sự gia tăng về độ phức tạp trong quá trình cấu hình hạ tầng.
-
-Terraform giúp giải quyết bài toán này bằng cách tự động hóa toàn bộ quy trình triển khai dưới dạng Infrastructure as Code. Thay vì cấu hình thủ công từng thành phần, người quản trị chỉ cần định nghĩa hạ tầng bằng mã nguồn và để Terraform thực hiện toàn bộ các bước còn lại.
-
-Đối với các doanh nghiệp đang xây dựng hoặc hiện đại hóa hạ tầng Oracle Database trên AWS, Terraform không chỉ giúp rút ngắn thời gian triển khai mà còn nâng cao tính nhất quán, khả năng mở rộng và hiệu quả vận hành của toàn bộ hệ thống.
-
-# TEST
-
----
 
 ## Kiến trúc sau khi triển khai
 

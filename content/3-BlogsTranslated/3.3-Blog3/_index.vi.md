@@ -1,126 +1,109 @@
 ﻿---
-title: "Blog 3"
+title: "Blog 1"
 date: 2024-01-01
 weight: 1
 chapter: false
-pre: " <b> 3.3. </b> "
+pre: " <b> 3.1. </b> "
 ---
 
-{}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+# Tự động hóa triển khai Oracle Database@AWS bằng Terraform
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Việc triển khai các hệ thống cơ sở dữ liệu Oracle trên nền tảng đám mây luôn là bài toán đòi hỏi sự cân bằng giữa hiệu năng, khả năng mở rộng và tính nhất quán trong quản lý hạ tầng. Với Oracle Database@AWS (ODB@AWS), Oracle đã mang nền tảng Exadata – hệ thống phần cứng được tối ưu dành riêng cho Oracle Database – vào trực tiếp trung tâm dữ liệu của AWS, cho phép doanh nghiệp khai thác hiệu năng cao của Oracle đồng thời tận dụng hệ sinh thái dịch vụ phong phú của AWS.
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+Tuy nhiên, để xây dựng hoàn chỉnh một môi trường Oracle Database@AWS, người quản trị phải thực hiện nhiều bước cấu hình như thiết lập ODB Network, triển khai Exadata Infrastructure, tạo VM Cluster và kết nối với Amazon VPC. Nếu thực hiện hoàn toàn trên AWS Console, quy trình này khá phức tạp, mất nhiều thời gian và dễ xảy ra sai sót khi số lượng môi trường triển khai tăng lên.
+
+Trong bài viết này, chúng ta sẽ tìm hiểu cách sử dụng Terraform để tự động hóa toàn bộ quá trình triển khai Oracle Database@AWS. Thông qua mô hình Infrastructure as Code (IaC), doanh nghiệp có thể chuẩn hóa hạ tầng, giảm thiểu lỗi cấu hình và triển khai hệ thống một cách nhanh chóng, nhất quán.
 
 ---
 
 ## Hướng dẫn kiến trúc
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
+Oracle Database@AWS được thiết kế để kết hợp hiệu năng của Oracle Exadata với khả năng mở rộng và tính linh hoạt của AWS. Thay vì vận hành Oracle Database trên hạ tầng riêng biệt, doanh nghiệp có thể triển khai trực tiếp trên cơ sở hạ tầng AWS nhưng vẫn sử dụng các tính năng tối ưu của Exadata.
 
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
+Trong mô hình này, Terraform đóng vai trò là công cụ điều phối toàn bộ quá trình tạo tài nguyên. Các thành phần hạ tầng được mô tả bằng mã nguồn HCL và được Terraform tự động triển khai theo đúng thứ tự phụ thuộc, giúp đảm bảo tính nhất quán giữa các môi trường.
 
-**Kiến trúc giải pháp bây giờ như sau:**
+Giải pháp bao gồm bốn thành phần chính:
+
+- ODB Network: Mạng chuyên dụng kết nối giữa AWS và Oracle Cloud Infrastructure (OCI), cung cấp đường truyền riêng có độ trễ thấp.
+- Oracle Exadata Infrastructure: Hạ tầng phần cứng Exadata được triển khai trực tiếp trong Availability Zone của AWS để cung cấp khả năng xử lý dữ liệu hiệu năng cao.
+- Exadata VM Cluster: Cụm máy ảo chạy Oracle Grid Infrastructure và Oracle Database.
+- ODB Peering Connection: Kết nối mạng riêng giữa Amazon VPC và ODB Network, cho phép các ứng dụng trên AWS truy cập Oracle Database một cách an toàn.
+
 
 > *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
 
----
-
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
-
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Sau khi các thành phần trên được tạo thành công, doanh nghiệp có thể triển khai Oracle Database với đầy đủ khả năng mở rộng, tính sẵn sàng cao và khả năng tích hợp với các dịch vụ AWS.
 
 ---
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+## Vì sao nên sử dụng Terraform?
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Terraform là một trong những công cụ Infrastructure as Code phổ biến nhất hiện nay. Thay vì thao tác trực tiếp trên giao diện quản trị AWS, toàn bộ hạ tầng được mô tả dưới dạng mã nguồn HCL (HashiCorp Configuration Language). Terraform sẽ đọc các tệp cấu hình này và tự động tạo tài nguyên theo đúng trình tự phụ thuộc.
 
----
+Việc áp dụng Terraform mang lại nhiều lợi ích:
 
-## The pub/sub hub
+- Tự động hóa hoàn toàn quá trình triển khai hạ tầng.
+- Loại bỏ các thao tác cấu hình thủ công trên AWS Console.
+- Đảm bảo cấu hình đồng nhất giữa các môi trường Development, Testing và Production.
+- Dễ dàng quản lý thay đổi thông qua Git.
+- Có thể tái sử dụng cấu hình cho nhiều dự án khác nhau.
+- Hỗ trợ mở rộng và cập nhật hạ tầng mà không ảnh hưởng đến các tài nguyên hiện có.
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
-
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Đối với các tổ chức triển khai nhiều hệ thống Oracle Database hoặc áp dụng DevOps, Terraform giúp giảm đáng kể thời gian triển khai và tăng khả năng kiểm soát hạ tầng.
 
 ---
 
-## Core microservice
+## Điều kiện trước khi triển khai
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+Trước khi chạy Terraform, cần đảm bảo đã hoàn tất các bước chuẩn bị sau:
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+### 1 Đăng ký Oracle Database@AWS
 
----
+Doanh nghiệp cần đăng ký dịch vụ Oracle Database@AWS thông qua AWS Marketplace và hoàn tất quy trình Onboarding với Oracle.
 
-## Front door microservice
+### 2 Liên kết tài khoản
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+AWS Account phải được liên kết với Oracle Cloud Infrastructure (OCI Tenancy) để Terraform có quyền quản lý tài nguyên trên cả hai nền tảng.
 
----
+  1. Cấu hình Terraform Provider
 
-## Staging ER7 microservice
+Terraform cần cấu hình đồng thời hai Provider:
+- AWS Provider
+- OCI Provider
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+Hai Provider này cho phép Terraform giao tiếp với API của AWS và Oracle Cloud.
+
+### 3 Thiết lập quyền IAM
+
+Tài khoản sử dụng Terraform cần có đầy đủ quyền tạo, cập nhật và xóa tài nguyên trên AWS cũng như Oracle Cloud.
+
+Sau khi hoàn tất các điều kiện trên, người quản trị có thể bắt đầu triển khai hạ tầng Oracle Database@AWS bằng Terraform.
 
 ---
 
-## Tính năng mới trong giải pháp
+## Quy trình triển khai bằng Terraform
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Terraform sẽ tạo các thành phần của Oracle Database@AWS theo đúng trình tự phụ thuộc. Mỗi thành phần được định nghĩa dưới dạng một Resource trong Terraform.
+
+### Bước 1. Khởi tạo ODB Network
+
+### 
+
+Bước đầu tiên là tạo Oracle Database Network, đóng vai trò thiết lập kết nối mạng riêng giữa AWS và Oracle Cloud Infrastructure.
+
+Ví dụ cấu hình Terraform:
+
+
+resource "aws_odb_network" "example" {
+  display_name         = "odb-my-net"
+  availability_zone_id = "use1-az6"
+  client_subnet_cidr   = "10.2.0.0/24"
+  backup_subnet_cidr   = "10.2.1.0/24"
+  s3_access            = "DISABLED"
+  zero_etl_access      = "DISABLED"
+  tags = {
+    "env" = "dev"
+  }
+}
 

@@ -82,12 +82,13 @@ resource "aws_odb_network" "example" {
     "env" = "dev"
   }
 }
-
+...
+```
 --- 
 
 ### 2. Tạo Oracle Exadata Infrastructure
 
-```hcl
+```hc2
 resource "aws_odb_cloud_exadata_infrastructure" "example" {
   display_name         = "my-exa-infra"
   availability_zone    = "use1-az6"
@@ -109,3 +110,5 @@ resource "aws_odb_cloud_exadata_infrastructure" "example" {
     "env" = "dev"
   }
 }
+...
+```
