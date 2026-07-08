@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{}
 
 
 ### Mục tiêu tuần 7:

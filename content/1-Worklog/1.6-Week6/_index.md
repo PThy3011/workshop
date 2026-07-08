@@ -5,7 +5,7 @@ weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{}
+
 
 
 ### Week 6 Objectives:

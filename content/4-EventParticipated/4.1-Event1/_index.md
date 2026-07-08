@@ -1,125 +1,121 @@
 ﻿---
-title: "Event 1"
-date: 2024-01-01
+title: "FCAJ Meetup 2026"
+date: 2026-06-13
 weight: 1
 chapter: false
-pre: " <b> 4.1. </b> "
+pre: " <b>4.1.</b> "
 ---
 
 {}
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Summary Report: "FCAJ Meetup 2026 – Career Development in Cloud, DevOps and Data"
 
-### Event Objectives
+## Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Share real-world experiences from industry professionals.
+- Introduce career paths in Cloud Computing, DevOps, and Data Analytics.
+- Provide insights into multinational company (MNC) culture.
+- Equip students with both technical and soft skills required in the IT industry.
+- Inspire participants to grow through AWS communities and continuous learning.
 
-### Speakers
+## Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Danh Hoàng Hiếu Nghị** – AI Engineer, AWS Community Builder, AWS Student Builder Group Leader
+- **Trong H. Truong** – DevOps Engineer at Endava Vietnam
+- **Dat Pham** – Data Analytics Engineer
+- **Cuong Nguyen** – Process Engineer
 
-### Key Highlights
+## Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+### Building a Career in the AWS Ecosystem
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- Career journey from university student to AWS Partner.
+- Introduction to First Cloud Journey, AWS Student Builder, and AWS Community Builder programs.
+- Importance of networking through technical communities.
+- Personal branding using LinkedIn and community activities.
 
-#### Transitioning to modern application architecture – Microservices
+### DevOps in Real-world Projects
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- Understanding what DevOps actually does beyond common misconceptions.
+- DevOps is about building reliable systems rather than simply managing tools.
+- Essential technical foundations:
+  - Linux
+  - Networking
+  - Git
+  - CI/CD
+  - Containers
+  - Cloud Platforms
+  - Python and Golang
+- AI should enhance engineers' productivity rather than replace critical thinking.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+### Data Analytics Engineering
 
-#### Domain-Driven Design (DDD)
+- Responsibilities of a Data Analytics Engineer.
+- Building dashboards and business reports.
+- Data-driven decision making.
+- Storytelling with data to communicate business insights.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+### Essential Skills
 
-#### Event-Driven Architecture
+- Critical thinking.
+- Communication.
+- Problem solving.
+- System thinking.
+- Continuous learning mindset.
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+### Multinational Company Culture
 
-#### Compute Evolution
+- Standard recruitment process in global companies.
+- No-Blame Post-Mortem culture.
+- Caring & Inclusive workplace.
+- Importance of English communication.
+- Long-term career development instead of chasing job titles.
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+## Key Takeaways
 
-#### Amazon Q Developer
+### Career Development
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+- Build strong fundamentals before learning advanced technologies.
+- Participate in technical communities.
+- Continuously improve personal portfolios.
 
-### Key Takeaways
+### Technical Knowledge
 
-#### Design Mindset
+- Master Linux, Networking, and Git before Kubernetes.
+- Learn Cloud through hands-on practice.
+- Develop personal projects to gain practical experience.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+### Soft Skills
 
-#### Technical Architecture
+- Effective communication.
+- Data storytelling.
+- Team collaboration.
+- Problem-solving mindset.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+### Professional Culture
 
-#### Modernization Strategy
+- Understand recruitment expectations of multinational companies.
+- Focus on teamwork and continuous improvement.
+- Learn from failures instead of assigning blame.
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+## Applying to Work
 
-### Applying to Work
+- Create a structured AWS and DevOps learning roadmap.
+- Improve LinkedIn and GitHub profiles.
+- Deploy practical applications on AWS.
+- Build business dashboards using data analytics.
+- Utilize AI tools to improve productivity.
+- Join AWS communities and technology meetups regularly.
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+## Event Experience
 
-### Event Experience
+Attending the FCAJ Meetup provided valuable insights into career development in Cloud Computing, DevOps, and Data Analytics.
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+One of the most impressive aspects was that every speaker shared practical experiences gained from working in real organizations rather than presenting only theoretical concepts. Their stories clearly illustrated the knowledge, skills, and mindset required by today's technology companies.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+Beyond technical knowledge, the event emphasized personal branding, networking, lifelong learning, and the importance of participating in professional communities.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+Overall, the meetup broadened my understanding of modern IT careers and motivated me to continuously improve both my technical expertise and professional mindset.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
-
+> Overall, FCAJ Meetup not only enhanced my technical knowledge but also inspired me to develop a long-term career mindset, embrace continuous learning, and prepare myself for future opportunities in the technology industry.
