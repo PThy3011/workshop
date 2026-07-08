@@ -150,4 +150,4 @@ By leveraging **Amazon EKS** for container orchestration and **Amazon Bedrock** 
 
 Rather than replacing insurance professionals, Cara enables them to spend less time on repetitive administrative work and more time building relationships with clients and delivering high-value advisory services.
 
-To learn more about Cara, visit **www.getcara.ai**. Organizations interested in developing enterprise AI solutions on AWS can begin exploring services such as **Amazon Bedrock** and **Amazon EKS**.
+Source: <https://aws.amazon.com/blogs/machine-learning/how-cara-pioneers-domain-specific-ai-for-enterprise-insurance-brokerages-with-aws/>

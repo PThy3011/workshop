@@ -349,4 +349,4 @@ Terraform addresses these challenges through the **Infrastructure as Code (IaC)*
 
 For organizations building new Oracle Database environments or modernizing existing infrastructure on AWS, combining Oracle Database@AWS with Terraform provides a scalable, repeatable, and efficient deployment strategy that simplifies long-term infrastructure management.
 
-To learn more about this solution and access the sample Terraform project, refer to the official AWS Database Blog and the AWS sample repository on GitHub.
+Source: AWS Database Blog - Provision Oracle Database@AWS resources using Terraform.

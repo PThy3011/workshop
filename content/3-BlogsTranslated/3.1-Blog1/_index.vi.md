@@ -345,4 +345,4 @@ Terraform giúp giải quyết bài toán này thông qua mô hình **Infrastruc
 
 Đối với các doanh nghiệp đang xây dựng hoặc hiện đại hóa hạ tầng Oracle Database trên AWS, việc kết hợp Oracle Database@AWS với Terraform là một giải pháp phù hợp để chuẩn hóa quy trình triển khai, tăng khả năng mở rộng và đơn giản hóa công tác quản trị trong dài hạn.
 
-Để tìm hiểu chi tiết hơn về giải pháp và mã nguồn mẫu, bạn có thể tham khảo bài viết chính thức trên AWS Database Blog cùng kho mã nguồn Terraform được AWS cung cấp trên GitHub.
+Nguồn: AWS Database Blog - Provision Oracle Database@AWS resources using Terraform.

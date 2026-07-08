@@ -1,211 +1,44 @@
 ﻿---
-title: "Blog 3"
-date: 2026-06-21
-weight: 3
+title: "Blog 1"
+date: 2026-01-01
+weight: 1
 chapter: false
-pre: " <b> 3.3. </b> "
+pre: " <b> 3.1. </b> "
 ---
+# Xây dựng hệ thống Thần Số Học (LunaGENZ) trên kiến trúc Serverless AWS kết hợp GenAI
 
+Chào mọi người, sau một thời gian tự học và cày thì team mình cũng bắt đầu làm đồ án cuối khóa: LunaGENZ – hệ thống dùng AI để luận giải Thần số học cá nhân hóa.
 
+Mình viết bài này không phải để khoe, mà muốn ghi lại quá trình ra quyết định kiến trúc, kèm những lỗi đã gặp – hy vọng có ích cho bạn nào đang làm đồ án tương tự, và rất mong nhận góp ý từ các anh chị có kinh nghiệm để team rút kinh nghiệm thêm.
 
-# Xây dựng hệ thống Thần Số Học (LunaGENZ) trên kiến trúc Serverless AWS kết hợp Generative AI
+## 1. Vì sao chọn kiến trúc Serverless
 
-Sự phát triển của Generative AI đã mở ra nhiều cơ hội để xây dựng các ứng dụng thông minh với khả năng tạo nội dung tự động. Tuy nhiên, để triển khai các ứng dụng AI trong thực tế, ngoài việc lựa chọn mô hình ngôn ngữ phù hợp còn cần một kiến trúc hạ tầng có khả năng mở rộng, tối ưu chi phí và giảm thiểu công tác vận hành.
+Mục tiêu ban đầu là tránh phải tự quản lý server, đồng thời giữ chi phí ở mức phù hợp với một dự án sinh viên không có doanh thu ổn định. Team chọn:
 
-Trong dự án **LunaGENZ**, nhóm chúng tôi xây dựng một hệ thống luận giải Thần số học cá nhân hóa bằng cách kết hợp **Generative AI** với kiến trúc **Serverless trên AWS**. Hệ thống cho phép người dùng nhập thông tin cá nhân, tự động sinh nội dung luận giải bằng AI, tạo báo cáo PDF và gửi kết quả qua email mà không cần bất kỳ thao tác thủ công nào.
+- Frontend: Next.js, deploy qua AWS Amplify
+- Backend: API Gateway + AWS Lambda
+- Database: Amazon DynamoDB (chế độ On-demand)
 
-Bài viết này chia sẻ quá trình thiết kế kiến trúc của LunaGENZ, các thách thức gặp phải trong quá trình phát triển cũng như cách các dịch vụ AWS được kết hợp để xây dựng một hệ thống linh hoạt, dễ mở rộng và tiết kiệm chi phí.
+Mô hình trả tiền theo lượng dùng thực tế giúp chi phí hạ tầng trong giai đoạn test rất thấp, phù hợp với một sản phẩm chưa có người dùng thật. Đây là điểm phù hợp với bài toán cụ thể của team ở giai đoạn này, không phải là kết luận chung cho mọi dự án — khi traffic tăng, mô hình serverless cũng có những đánh đổi riêng về chi phí mà team vẫn đang tìm hiểu thêm.
 
----
+## 2. Vấn đề Timeout và cách xử lý bằng Amazon SQS
 
-## Tổng quan về hệ thống
+Ban đầu hệ thống gọi AI sinh nội dung và xuất PDF ngay trong cùng một request. Vì các bước này tốn thời gian, hệ thống liên tục dính lỗi timeout do API Gateway giới hạn 29 giây.
 
-LunaGENZ được xây dựng với ba mục tiêu chính:
+Cách team xử lý: tách luồng xử lý bằng Amazon SQS. Request từ người dùng chỉ đẩy message vào hàng đợi và trả về phản hồi "đang xử lý". Một Lambda khác chạy nền sẽ lấy message ra, gọi AI, tạo PDF, rồi gửi qua Amazon SES về email người dùng. Cách này giúp hệ thống không còn timeout và giảm rủi ro mất dữ liệu khi xử lý lỗi.
 
-- Tự động hóa quá trình luận giải Thần số học bằng Generative AI.
-- Giảm thiểu việc quản lý hạ tầng thông qua mô hình Serverless.
-- Tối ưu chi phí triển khai trong giai đoạn phát triển và thử nghiệm.
+## 3. Lựa chọn model AI
 
-Thay vì triển khai trên máy chủ truyền thống, toàn bộ hệ thống được xây dựng bằng các dịch vụ được quản lý hoàn toàn trên AWS. Điều này giúp nhóm phát triển tập trung vào nghiệp vụ thay vì dành nhiều thời gian cho việc cấu hình và vận hành hạ tầng.
+Team dùng Claude 3 Haiku qua Amazon Bedrock thay vì các model lớn hơn. Lý do là bài toán luận giải text tiếng Việt của tụi mình không đòi hỏi reasoning quá phức tạp, nên một model nhỏ, phản hồi nhanh, chi phí thấp hơn là lựa chọn hợp lý hơn so với việc dùng model mạnh nhất có thể.
 
-> *Hình 1. Kiến trúc tổng thể của hệ thống LunaGENZ.*
+## 4. Bảo mật và CI/CD
 
----
+- Luồng thanh toán được tách thành một Webhook Handler riêng, độc lập với phần luận giải AI.
+- Các key nhạy cảm lưu trong AWS Secrets Manager, không hardcode trong code.
+- Toàn bộ frontend và backend được tự động deploy qua GitLab CI/CD. Theo dõi lỗi và performance bằng CloudWatch.
 
-## Kiến trúc Serverless cho LunaGENZ
+## Vài điều mình và team rút ra được
 
-Ngay từ đầu, nhóm xác định rằng LunaGENZ là một dự án có lượng truy cập chưa ổn định và ngân sách triển khai còn hạn chế. Vì vậy, việc lựa chọn kiến trúc Serverless giúp giảm đáng kể chi phí cũng như công sức quản trị hệ thống.
+Đây là lần đầu team áp dụng kiến trúc serverless ở mức tương đối đầy đủ, nên chắc chắn còn nhiều điểm chưa tối ưu — ví dụ việc xử lý lỗi khi Lambda xử lý nền bị fail, hay cách kiểm soát chi phí khi scale thật vẫn là những bài toán team chưa thử nghiệm ở quy mô lớn.
 
-Giải pháp bao gồm các thành phần chính sau:
-
-- **Frontend:** Next.js triển khai trên AWS Amplify Hosting.
-- **API Layer:** Amazon API Gateway.
-- **Business Logic:** AWS Lambda.
-- **Database:** Amazon DynamoDB (On-Demand Mode).
-- **Message Queue:** Amazon SQS.
-- **AI Service:** Amazon Bedrock (Claude 3 Haiku).
-- **Storage:** Amazon S3.
-- **Email Service:** Amazon Simple Email Service (Amazon SES).
-
-Kiến trúc này cho phép từng thành phần hoạt động độc lập và tự động mở rộng theo nhu cầu sử dụng thực tế.
-
-Một số lợi ích nổi bật của mô hình Serverless gồm:
-
-- Không cần quản lý máy chủ.
-- Tự động mở rộng tài nguyên.
-- Chỉ trả phí theo lượng sử dụng thực tế.
-- Dễ dàng triển khai và bảo trì.
-- Phù hợp với các dự án có lưu lượng truy cập thay đổi liên tục.
-
----
-
-## Luồng xử lý của hệ thống
-
-LunaGENZ được xây dựng theo mô hình **Event-Driven Architecture**, trong đó mỗi dịch vụ chỉ đảm nhận một vai trò riêng biệt.
-
-Quy trình xử lý gồm các bước sau:
-
-1. Người dùng nhập thông tin cá nhân trên giao diện web.
-2. Amazon API Gateway tiếp nhận và xác thực yêu cầu.
-3. AWS Lambda xử lý nghiệp vụ ban đầu.
-4. Kiểm tra trạng thái thanh toán trong Amazon DynamoDB.
-5. Đưa yêu cầu vào Amazon SQS.
-6. Lambda xử lý nền tự động nhận message từ SQS.
-7. Amazon Bedrock sinh nội dung luận giải Thần số học.
-8. Hệ thống tạo báo cáo PDF.
-9. Báo cáo được lưu trên Amazon S3.
-10. Amazon SES gửi email chứa liên kết tải báo cáo cho người dùng.
-
-Việc tách toàn bộ quy trình thành nhiều bước giúp hệ thống dễ mở rộng, tăng khả năng chịu lỗi và giảm sự phụ thuộc giữa các thành phần.
-
----
-
-## Giải quyết bài toán Timeout bằng Amazon SQS
-
-Trong quá trình phát triển, nhóm gặp phải một vấn đề phổ biến khi xây dựng các ứng dụng AI là thời gian xử lý của mô hình ngôn ngữ thường vượt quá giới hạn **29 giây** của Amazon API Gateway.
-
-Ban đầu, hệ thống thực hiện toàn bộ các bước trong cùng một request:
-
-- Gọi AI sinh nội dung.
-- Tạo báo cáo PDF.
-- Lưu file lên Amazon S3.
-- Gửi email cho người dùng.
-
-Do quá trình sinh nội dung và tạo PDF mất nhiều thời gian nên API thường xuyên bị Timeout.
-
-Để giải quyết vấn đề này, nhóm đã chuyển sang mô hình xử lý bất đồng bộ bằng **Amazon SQS**.
-
-Thay vì chờ toàn bộ quy trình hoàn tất, Lambda chỉ thực hiện:
-
-1. Kiểm tra dữ liệu đầu vào.
-2. Xác minh trạng thái thanh toán.
-3. Đưa yêu cầu vào Amazon SQS.
-4. Trả về phản hồi "Đang xử lý" ngay lập tức.
-
-Một Lambda khác sẽ được kích hoạt tự động thông qua SQS để tiếp tục xử lý toàn bộ công việc phía sau.
-
-Giải pháp này mang lại nhiều lợi ích:
-
-- Loại bỏ hoàn toàn lỗi Timeout.
-- Tăng khả năng mở rộng khi có nhiều yêu cầu đồng thời.
-- Tránh mất dữ liệu khi xảy ra lỗi.
-- Cải thiện trải nghiệm người dùng.
-
----
-
-## Tích hợp Generative AI với Amazon Bedrock
-
-Thành phần quan trọng nhất của LunaGENZ là khả năng tạo nội dung luận giải bằng Generative AI.
-
-Hệ thống sử dụng **Claude 3 Haiku** thông qua **Amazon Bedrock** thay vì các mô hình lớn hơn.
-
-Việc lựa chọn Claude 3 Haiku dựa trên các tiêu chí:
-
-- Thời gian phản hồi nhanh.
-- Chi phí thấp.
-- Chất lượng sinh tiếng Việt đáp ứng tốt yêu cầu của dự án.
-- Không cần các khả năng suy luận quá phức tạp.
-
-Thông tin gửi tới mô hình AI bao gồm:
-
-- Họ và tên.
-- Ngày sinh.
-- Dữ liệu từ điển Thần số học.
-- System Prompt.
-- User Prompt.
-
-Sau khi xử lý, Amazon Bedrock trả về nội dung luận giải hoàn chỉnh bằng tiếng Việt để sử dụng trong báo cáo cuối cùng.
-
----
-
-## Bảo mật và quản lý hạ tầng
-
-Mặc dù LunaGENZ là một dự án học tập, nhóm vẫn áp dụng các nguyên tắc bảo mật cơ bản nhằm đảm bảo an toàn cho hệ thống.
-
-### AWS Secrets Manager
-
-Các thông tin nhạy cảm như API Key, Webhook Secret và Access Token đều được lưu trong AWS Secrets Manager thay vì hardcode trong mã nguồn.
-
-### AWS Identity and Access Management (IAM)
-
-Mỗi Lambda được cấp một IAM Role riêng theo nguyên tắc **Least Privilege**, chỉ được phép truy cập vào những tài nguyên cần thiết.
-
-### Amazon Cognito
-
-Amazon Cognito được sử dụng để quản lý người dùng, hỗ trợ đăng ký, đăng nhập và cấp phát JWT Token để bảo vệ các API.
-
----
-
-## Tạo và phân phối báo cáo
-
-Sau khi Amazon Bedrock hoàn tất việc sinh nội dung, Lambda xử lý nền sẽ tiếp tục tạo báo cáo PDF.
-
-Quy trình phân phối gồm các bước:
-
-1. Sinh file PDF.
-2. Lưu báo cáo lên Amazon S3.
-3. Gửi email qua Amazon SES.
-4. Người dùng nhận liên kết tải báo cáo.
-
-Quá trình này diễn ra hoàn toàn tự động mà không cần bất kỳ thao tác thủ công nào từ phía quản trị viên.
-
----
-
-## Tối ưu chi phí vận hành
-
-Một trong những mục tiêu quan trọng của LunaGENZ là giảm chi phí triển khai.
-
-Một số giải pháp được áp dụng gồm:
-
-- DynamoDB On-Demand giúp không cần dự báo trước dung lượng.
-- AWS Lambda chỉ tính phí theo thời gian thực thi.
-- Amazon SQS giúp xử lý bất đồng bộ mà không cần máy chủ trung gian.
-- Amazon S3 lưu trữ báo cáo với chi phí thấp.
-- S3 Lifecycle Policy tự động chuyển các báo cáo cũ sang Amazon S3 Glacier nhằm tiết kiệm chi phí lưu trữ.
-
-Trong giai đoạn thử nghiệm, tổng chi phí vận hành của toàn bộ hệ thống chỉ khoảng **1 USD**, cho thấy mô hình Serverless phù hợp với các dự án quy mô nhỏ và trung bình.
-
----
-
-## Bài học rút ra
-
-Thông qua quá trình xây dựng LunaGENZ, nhóm đã tích lũy được nhiều kinh nghiệm về việc thiết kế hệ thống AI trên nền tảng đám mây.
-
-Một số bài học quan trọng gồm:
-
-- Kiến trúc Serverless giúp giảm đáng kể công tác quản trị hạ tầng.
-- Các tác vụ AI nên được xử lý bất đồng bộ để tránh giới hạn thời gian của API Gateway.
-- Việc lựa chọn mô hình AI cần cân bằng giữa chi phí và hiệu năng thay vì chỉ ưu tiên mô hình mạnh nhất.
-- Các dịch vụ được quản lý trên AWS giúp đơn giản hóa quá trình triển khai và vận hành.
-
-Trong tương lai, nhóm dự kiến sẽ tiếp tục cải thiện khả năng giám sát, xử lý lỗi của Lambda xử lý nền và tối ưu chi phí khi hệ thống mở rộng ở quy mô lớn hơn.
-
----
-
-## Kết luận
-
-LunaGENZ là một ví dụ về việc kết hợp thành công giữa **Generative AI** và **kiến trúc Serverless trên AWS** để xây dựng một ứng dụng thông minh có khả năng mở rộng, vận hành ổn định và tối ưu chi phí.
-
-Thông qua việc tích hợp **Amazon API Gateway**, **AWS Lambda**, **Amazon DynamoDB**, **Amazon SQS**, **Amazon Bedrock**, **Amazon S3** và **Amazon SES**, toàn bộ quy trình từ tiếp nhận yêu cầu, sinh nội dung AI, tạo báo cáo PDF đến gửi kết quả cho người dùng đều được tự động hóa hoàn toàn.
-
-Đối với các nhóm phát triển đang tìm hiểu cách xây dựng ứng dụng AI trên nền tảng AWS, LunaGENZ là một ví dụ thực tế cho thấy kiến trúc Serverless kết hợp Generative AI có thể giúp giảm đáng kể chi phí vận hành, đơn giản hóa việc triển khai và tạo nền tảng thuận lợi để mở rộng hệ thống trong tương lai.
+Do cũng là lần đầu làm một project mà liên quan đến ngoài nên cũng không bỏ qua nhiều sai sót, mong là các anh chị sẽ cùng góp gạch giúp tụi em để tụi em làm tốt hơn ạ. Em cảm ơn mọi người đã bỏ thời gian đọc bài viết này ạ.

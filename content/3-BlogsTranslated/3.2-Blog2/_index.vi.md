@@ -109,6 +109,7 @@ Cara là minh chứng điển hình cho việc áp dụng AI chuyên ngành (dom
 
 Giải pháp không chỉ giúp các công ty môi giới tiết kiệm thời gian và chi phí vận hành mà còn giúp nhân viên tập trung vào giá trị cốt lõi: xây dựng mối quan hệ với khách hàng.
 
-Để tìm hiểu thêm về Cara, bạn có thể truy cập [www.getcara.ai](https://www.getcara.ai/). Các doanh nghiệp quan tâm đến việc xây dựng giải pháp AI trên AWS có thể bắt đầu với Amazon Bedrock và Amazon EKS.
+Nguồn: <https://aws.amazon.com/blogs/machine-learning/how-cara-pioneers-domain-specific-ai-for-enterprise-insurance-brokerages-with-aws/>
+
 
 ---
