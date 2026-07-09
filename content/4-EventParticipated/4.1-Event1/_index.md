@@ -82,6 +82,6 @@ I was especially impressed by the speakers’ sincerity and passion. The event w
 
 The FCAJ Meetup on June 13, 2026, was a meaningful event that provided both practical knowledge and strong inspiration for young people. It helped attendees gain a clearer vision of their career path in Cloud, DevOps, and Data fields.
 
-Thank you to the organizing team and all the speakers for taking the time to share their valuable experiences.
+Thank you to the organizing team and all the speakers for taking the time to share their valuable experiences!
 
 ---
