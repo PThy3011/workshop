@@ -12,7 +12,6 @@ Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là
 
 ### [Event 1](4.1-Event1/)
 &emsp;**Tên sự kiện:** FCAJ Meetup 2026 – Hành trình từ Sinh viên đến Chuyên gia Cloud, DevOps & Data
-
 &emsp;**Thời gian:** 09:00 ngày 13/06/2026
 
 &emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh

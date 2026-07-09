@@ -68,7 +68,7 @@ Tham gia **FCAJ Meetup 2026** là một buổi học hỏi rất giá trị. Cá
 
 Mình đặc biệt ấn tượng với sự chân thành và nhiệt huyết của các anh. Sự kiện không chỉ cung cấp kiến thức chuyên môn mà còn truyền cảm hứng mạnh mẽ về tinh thần học hỏi không ngừng và xây dựng thương hiệu cá nhân.
 
-**Kết luận**: Đây là một buổi meetup ý nghĩa, giúp thế hệ trẻ có định hướng rõ ràng hơn trên con đường sự nghiệp công nghệ. Cảm ơn Ban Tổ chức và toàn thể diễn giả đã dành thời gian chia sẻ!
+**Kết luận**: Đây là một buổi meetup ý nghĩa, giúp thế hệ trẻ có định hướng rõ ràng hơn trên con đường sự nghiệp công nghệ. Cảm ơn Ban Tổ chức và toàn thể diễn giả đã dành thời gian chia sẻ.
 
 ---
 

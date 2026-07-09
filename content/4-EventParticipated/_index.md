@@ -1,6 +1,6 @@
 ﻿---
 title: "Events Participated"
-date: 2024-01-01
+date: 2026-07-10
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
@@ -12,7 +12,6 @@ During my internship, I participated in two events. Each one was a memorable exp
 ### [Event 1](4.1-Event1/)
 
 &emsp;**Event Name:** FCAJ Meetup 2026 – From Student to Cloud, DevOps & Data Professional
-
 &emsp;**Date & Time:** 9:00 AM, June 13, 2026
 
 &emsp;**Venue:** 26th Floor, Bitexco Financial Tower, 02 Hai Trieu Street, Sai Gon Ward, Ho Chi Minh City, Vietnam
