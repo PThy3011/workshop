@@ -3,27 +3,24 @@ title: "Worklog Tuần 8"
 date: 2026-06-05
 weight: 8
 chapter: false
-pre: " <b> 8. </b> "
+pre: " <b> 1.8. </b> "
 ---
 
 ### Mục tiêu tuần 8:
-* Tiếp tục phát triển Project nhóm
-* Đọc và tìm hiểu thêm các bài blog kỹ thuật liên quan đến AWS
+* Tìm hiểu khả năng tích hợp giữa Amazon S3, Amazon EC2, AWS Lambda và Amazon VPC.
+* Nghiên cứu AWS Security Hub và các tiêu chuẩn bảo mật trên AWS.
+* Đọc các bài viết về Cost Optimization và Resource Tagging.
 
 ### Các công việc cần triển khai trong tuần này:
 
-#### TUẦN 8 (Từ 05/06/2026 – 11/06/2026)
-
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | Xây dựng Project nhóm | 05/06/2026 | 05/06/2026 | Nội bộ nhóm |
-| 3-4 | Tìm hiểu và đọc các bài blog về Best Practices của AWS (Security, Cost Optimization, Networking) | 06/06/2026 | 08/06/2026 | AWS Blog, Well-Architected Framework |
-| 5 | Triển khai các tính năng đã phân công trong Project nhóm | 09/06/2026 | 09/06/2026 | AWS Documentation |
-| 6 - 7 | Viết Worklog tuần và cập nhật tiến độ Project | 10/06/2026 | 11/06/2026 | Tài liệu cá nhân |
-
----
+| 2 | Tìm hiểu mô hình tích hợp Amazon S3, Amazon EC2, AWS Lambda và Amazon VPC | 05/06/2026 | 05/06/2026 | AWS Documentation |
+| 3 | Nghiên cứu AWS Security Hub và AWS Foundational Security Best Practices | 06/06/2026 | 06/06/2026 | AWS Security Hub Documentation |
+| 4 | Tìm hiểu tiêu chuẩn CIS Benchmark và cách áp dụng trên AWS | 07/06/2026 | 07/06/2026 | CIS Benchmark |
+| 5 - 6 | Đọc AWS Blogs về Cost Optimization và Resource Tagging, tổng hợp kiến thức | 08/06/2026 | 11/06/2026 | https://aws.amazon.com/vi/blogs/ |
 
 ### Kết quả đạt được tuần 8:
-* Đọc và nắm được các bài blog chính thức của AWS.
-* Hoàn thành một phần quan trọng trong Project nhóm.
-* Cải thiện kỹ năng làm việc nhóm và quản lý task.
+* Hiểu được cách tích hợp các dịch vụ cốt lõi trên AWS.
+* Nắm được các tiêu chuẩn bảo mật và phương pháp tối ưu chi phí trên AWS.
+* Hoàn thiện phần nghiên cứu phục vụ Technical Blog.

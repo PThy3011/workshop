@@ -3,25 +3,24 @@ title: "Worklog Tuần 9"
 date: 2026-06-12
 weight: 9
 chapter: false
-pre: " <b> 9. </b> "
+pre: " <b> 1.9. </b> "
 ---
 
 ### Mục tiêu tuần 9:
-* Tiếp tục hoàn thiện Project nhóm
-* Tích lũy thêm kiến thức qua các bài blog
+* Thực hành tối ưu chi phí trên AWS.
+* Tìm hiểu Hybrid Cloud Connectivity và VM Import/Export.
+* Mở rộng kiến thức về quản lý tài nguyên trên AWS.
 
 ### Các công việc cần triển khai trong tuần này:
 
-#### TUẦN 9 (Từ 12/06/2026 – 18/06/2026)
-
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2-5 | Đọc thêm các bài blog chuyên sâu về Lambda, Security Hub và Migration | 12/06/2026 | 16/06/2026 | AWS Blog |
-| 6 | Review tiến độ Project và chỉnh sửa theo góp ý | 17/06/2026 | 17/06/2026 | Nhóm |
-| 7 | Viết Workshop tuần và chuẩn bị tài liệu demo | 18/06/2026 | 18/06/2026 | Tài liệu cá nhân |
-
----
+| 2 | Thực hành tối ưu chi phí với AWS Lambda | 12/06/2026 | 12/06/2026 | AWS Documentation |
+| 3 | Tìm hiểu AWS Resource Groups và Resource Tagging | 13/06/2026 | 13/06/2026 | AWS Documentation |
+| 4 | Nghiên cứu Hybrid Cloud Connectivity trên AWS | 14/06/2026 | 14/06/2026 | AWS Blogs |
+| 5 - 6 | Đọc tài liệu về VM Import/Export và tổng hợp kiến thức | 15/06/2026 | 18/06/2026 | AWS Documentation |
 
 ### Kết quả đạt được tuần 9:
-* Hoàn thiện gần như toàn bộ các tính năng chính của Project nhóm.
-* Tích lũy được nhiều kiến thức thực tế qua việc đọc blog và áp dụng vào project.
+* Hiểu được các phương pháp tối ưu chi phí trên AWS.
+* Nắm được cơ chế quản lý tài nguyên bằng Resource Groups và Tagging.
+* Mở rộng kiến thức về Hybrid Cloud và VM Import/Export.

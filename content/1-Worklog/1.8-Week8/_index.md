@@ -1,29 +1,26 @@
 ﻿---
-title: "Worklog Week 8"
+title: "Week 8 Worklog"
 date: 2026-06-05
 weight: 8
 chapter: false
-pre: " <b> 8. </b> "
+pre: " <b> 1.8. </b> "
 ---
 
-### Objectives for Week 8:
-* Continue developing the group project.
-* Study AWS technical blogs and best practices.
+### Week 8 Objectives
+* Learn how Amazon S3, Amazon EC2, AWS Lambda, and Amazon VPC integrate together.
+* Study AWS Security Hub and AWS security standards.
+* Read AWS blogs about Cost Optimization and Resource Tagging.
 
-### Tasks for This Week:
-
-#### WEEK 8 (From June 5, 2026 – June 11, 2026)
+### Tasks for This Week
 
 | Day | Task | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| Mon | Develop the group project | 05/06/2026 | 05/06/2026 | Internal Project Materials |
-| Tue–Wed | Study AWS best practices related to Security, Cost Optimization, and Networking | 06/06/2026 | 08/06/2026 | AWS Blogs, AWS Well-Architected Framework |
-| Thu | Implement assigned features for the group project | 09/06/2026 | 09/06/2026 | AWS Documentation |
-| Fri–Sat | Write the weekly worklog and update project progress | 10/06/2026 | 11/06/2026 | Personal Documentation |
+| Mon | Study the integration between Amazon S3, Amazon EC2, AWS Lambda, and Amazon VPC | 05/06/2026 | 05/06/2026 | AWS Documentation |
+| Tue | Learn AWS Security Hub and AWS Foundational Security Best Practices | 06/06/2026 | 06/06/2026 | AWS Documentation |
+| Wed | Study CIS Benchmark and cloud security recommendations | 07/06/2026 | 07/06/2026 | CIS Benchmark |
+| Thu - Fri | Read AWS blogs on Cost Optimization and Resource Tagging and summarize the key concepts | 08/06/2026 | 11/06/2026 | https://aws.amazon.com/vi/blogs/ |
 
----
-
-### Results Achieved in Week 8:
-* Studied and understood official AWS technical blogs and best practices.
-* Completed a significant portion of the group project.
-* Improved teamwork, task management, and project coordination skills.
+### Week 8 Results
+* Learned how AWS core services integrate with each other.
+* Understood AWS security standards and cost optimization strategies.
+* Completed research materials for technical blog writing.

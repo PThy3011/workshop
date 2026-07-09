@@ -18,8 +18,7 @@ pre: " <b> 12. </b> "
 | --- | --- | --- | --- | --- |
 | 2-4 | Hoàn thiện nốt các chương còn lại của báo cáo | 03/07/2026 | 06/07/2026 | Toàn bộ tài liệu |
 | 5 | Chỉnh sửa tổng thể nội dung | 07/07/2026 | 07/07/2026 | Báo cáo |
-| 6 | Hoàn thiện Project nhóm và chuẩn bị trình bày | 08/07/2026 | 08/07/2026 | Project |
-| 7 | Nộp báo cáo  | 09/07/2026 | 10/07/2026 |  |
+| 6 -7 | Hoàn thiện Project nhóm và chuẩn bị trình bày | 08/07/2026 | 10/07/2026 | Project |
 
 ---
 

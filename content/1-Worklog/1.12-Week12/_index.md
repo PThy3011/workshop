@@ -18,8 +18,7 @@ pre: " <b> 12. </b> "
 | --- | --- | --- | --- | --- |
 | Mon–Wed | Complete the remaining chapters of the internship report | 03/07/2026 | 06/07/2026 | All project materials |
 | Thu | Review and revise the entire report | 07/07/2026 | 07/07/2026 | Internship Report |
-| Fri | Finalize the group project and prepare for the presentation | 08/07/2026 | 08/07/2026 | Group Project |
-| Sat | Submit the internship report | 09/07/2026 | 10/07/2026 | - |
+| Fri-Sat| Finalize the group project and prepare for the presentation | 08/07/2026 | 10/07/2026 | Group Project |
 
 ---
 
