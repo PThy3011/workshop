@@ -8,7 +8,7 @@ pre: " <b> 5.2. </b> "
 
 ### 1. Sơ đồ kiến trúc
 
-![Architecture Diagram](/images/5-Workshop/5.4-S3-onprem/InterfaceEndpointArchitecture.png)
+![Architecture Diagram](/workshop/images/mohinh.png)
 
 Đây là sơ đồ kiến trúc mà mình cùng các bạn trong nhóm đã triển khai cho dự án LunaGenZ.
 

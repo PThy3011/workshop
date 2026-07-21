@@ -8,7 +8,7 @@ pre: " <b> 5.2. </b> "
 
 ### 1. Architecture Diagram
 
-![Architecture Diagram](/images/5-Workshop/5.4-S3-onprem/InterfaceEndpointArchitecture.png)
+![Architecture Diagram](/workshop/images/mohinh.png)
 
 This is architecture diagram for LunaGenZ project.
 
