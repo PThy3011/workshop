@@ -20,17 +20,17 @@ To provide an objective reflection of my internship experience, I have conducted
 
 | No. | Evaluation Criteria | Description | Good | Fair | Average |
 | --- | ------------------- | ----------- | ---- | ---- | ------- |
-| 1 | **Professional Knowledge and Skills** | Industry knowledge, practical application, technical skills, and work quality | ✅ | ☐ | ☐ |
+| 1 | **Professional Knowledge and Skills** | Industry knowledge, practical application, technical skills, and work quality | ☐ | ✅ | ☐ |
 | 2 | **Learning Ability** | Ability to acquire new knowledge and learn quickly | ☐ | ✅ | ☐ |
 | 3 | **Proactiveness** | Takes initiative in learning and completing tasks independently | ✅ | ☐ | ☐ |
 | 4 | **Responsibility** | Completes assigned tasks on time while maintaining quality | ✅ | ☐ | ☐ |
 | 5 | **Discipline** | Complies with working hours, company policies, and procedures | ✅ | ☐ | ☐ |
 | 6 | **Willingness to Improve** | Accepts feedback and continuously develops personal skills | ✅ | ☐ | ☐ |
-| 7 | **Communication Skills** | Clearly communicates ideas and reports work progress | ✅ | ☐ | ☐ |
+| 7 | **Communication Skills** | Clearly communicates ideas and reports work progress | ☐ | ✅ | ☐ |
 | 8 | **Teamwork** | Collaborates effectively with colleagues and contributes to team activities | ✅ | ☐ | ☐ |
 | 9 | **Professional Conduct** | Demonstrates respect toward colleagues, partners, and the workplace | ✅ | ☐ | ☐ |
 | 10 | **Problem-Solving Skills** | Identifies problems, proposes solutions, and demonstrates creativity | ☐ | ✅ | ☐ |
-| 11 | **Contribution to Projects/Organization** | Work effectiveness, improvement initiatives, and contributions recognized by the team | ☐ | ✅ | ☐ |
+| 11 | **Contribution to Projects/Organization** | Work effectiveness, improvement initiatives, and contributions recognized by the team | ✅ | ☐ | ☐ |
 | 12 | **Overall Performance** | Overall evaluation of the internship experience | ✅ | ☐ | ☐ |
 
 ### Areas for Improvement

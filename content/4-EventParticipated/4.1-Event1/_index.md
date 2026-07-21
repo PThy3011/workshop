@@ -8,7 +8,7 @@ pre: " <b>4.1.</b> "
 
 # FCAJ Meetup 2026 – Career Journey in Cloud, DevOps, and Data
 
-On **June 13, 2026**, the **FCAJ Meetup** was successfully held, attracting many students and young professionals passionate about technology. The event provided valuable real-world insights from experienced engineers in the Cloud, AI, DevOps, and Data fields.
+On **June 13, 2026**, the **FCAJ Meetup** was held, attracting many students and young professionals passionate about technology. The event provided valuable real-world insights from experienced engineers in the Cloud, AI, DevOps, and Data fields.
 
 ## Event Objectives
 

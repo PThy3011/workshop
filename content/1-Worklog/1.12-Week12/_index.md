@@ -14,12 +14,11 @@ pre: " <b> 12. </b> "
 
 #### WEEK 12 (From July 3, 2026 – July 10, 2026)
 
-| Day | Task | Start Date | Completion Date | Reference |
+| Day | Task | Start Date | End Date | Reference |
 | --- | --- | --- | --- | --- |
-| Mon–Wed | Complete the remaining chapters of the internship report | 03/07/2026 | 06/07/2026 | All project materials |
-| Thu | Review and revise the entire report | 07/07/2026 | 07/07/2026 | Internship Report |
-| Fri-Sat| Finalize the group project and prepare for the presentation | 08/07/2026 | 10/07/2026 | Group Project |
-
+| Mon–Wed | Continue in-depth study of Amazon RDS/Aurora integrated with VPC Peering and AWS Security Hub | 03/07/2026 | 06/07/2026 |  |
+| Thu | Complete the internship report | 07/07/2026 | 07/07/2026 | Internship Report |
+| Fri–Sat | Finalize the project and prepare for the presentation | 08/07/2026 | 10/07/2026 | Project |
 ---
 
 ### Results Achieved in Week 12:

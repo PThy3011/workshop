@@ -25,3 +25,9 @@ In this lab, you will learn how to:
 4. [Automated PDF Generation](5.4-PDF-Generation/)
 5. [Frontend Hosting (S3 & CloudFront)](5.5-Frontend-Hosting/)
 6. [Clean up](5.6-Cleanup/)
+
+#### Demo
+
+Link website: https://www.lunagenz.sbs/
+Link video demo: https://drive.google.com/drive/folders/1EIiVDEET1jN1fQLz751UtGRnkJPrTmsI?usp=sharing
+Link github: https://github.com/Vird2004/LunaGenZ

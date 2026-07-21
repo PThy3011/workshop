@@ -16,9 +16,9 @@ pre: " <b> 12. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2-4 | Hoàn thiện nốt các chương còn lại của báo cáo | 03/07/2026 | 06/07/2026 | Toàn bộ tài liệu |
-| 5 | Chỉnh sửa tổng thể nội dung | 07/07/2026 | 07/07/2026 | Báo cáo |
-| 6 -7 | Hoàn thiện Project nhóm và chuẩn bị trình bày | 08/07/2026 | 10/07/2026 | Project |
+| 2-4 | Tiếp tục tìm hiểu sâu Amazon RDS/Aurora kết hợp VPC peering, Security Hub | 03/07/2026 | 06/07/2026 |  |
+| 5 | Hoàn thiện báo cáo | 07/07/2026 | 07/07/2026 | Báo cáo |
+| 6-7 | Hoàn thiện Project và chuẩn bị trình bày | 08/07/2026 | 10/07/2026 | Project |
 
 ---
 

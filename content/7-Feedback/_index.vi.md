@@ -35,5 +35,4 @@ Mọi người trong team làm việc nghiêm túc nhưng rất vui vẻ và h�
 - Tăng cường các buổi workshop thực hành.
 - Mong muốn được giữ liên lạc sau thực tập để tiếp tục học hỏi từ team.
 - Góp ý khác: Em cảm ơn rất nhiều vì đã có cơ hội tham gia chương trình ý nghĩa này.
-
 Em xin chân thành cảm ơn toàn thể team FCJ và Công ty AWS Vietnam đã tạo điều kiện cho em trong suốt kỳ thực tập!

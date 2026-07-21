@@ -1,5 +1,5 @@
 ﻿---
-title: "Proposal"
+title: "Project Proposal"
 date: 2026-04-18
 weight: 2
 chapter: false
@@ -7,59 +7,56 @@ pre: " <b> 2. </b> "
 ---
 
 # LunaGenZ - Serverless Numerology Web Application
-## Automated Numerology Application System on AWS Serverless Platform
+
+Link website: https://www.lunagenz.sbs/
 
 ### 1. Project Overview
-LunaGenZ is a Numerology application platform built for young audiences, allowing users to look up personalized metrics based on their date of birth and full name. The system automatically generates a detailed report in PDF format and sends it directly via email to the user.
+LunaGenZ is a Numerology & Lenormand application platform built for young people, allowing users to look up personalized metrics based on their date of birth and full name. It can also be used to check metrics for friends, relatives, or even romantic interests and crushes. The system automatically generates a detailed report in PDF format and sends it directly via email to the user.
+The project is built on a **100% AWS Serverless** architecture to ensure flexibility, automatic scalability, and cost optimization.
 
-To ensure flexibility, stability, and cost optimization for the MVP (Minimum Viable Product) phase, the platform adopts a **100% AWS Serverless** architecture and utilizes a powerful internal PDF generation technology instead of relying on third-party Generative AI services.
+### 2. Objectives
+- **Desired Output:** A fully functional website that allows users to input their information, after which the system generates a PDF numerology report and emails it.
+- **Success Criteria:** The system operates smoothly end-to-end (from frontend to backend), scales automatically during high traffic, and maintains minimal monthly maintenance costs (leveraging the Free Tier).
 
-### 2. Problem Statement & Solution
-#### Current Problem
-There are many fortune-telling and numerology applications in the current market, but most require users to pay upfront or feature a design that is not friendly to the young customer base (Gen Z). Initially, the team planned to use Generative AI (such as Amazon Bedrock) to generate personalized reports. However, integrating LLMs (Large Language Models) poses risks of uncontrollable costs for an MVP project and increases latency during report generation.
-
-#### Technical Solution (Fallback Strategy)
-LunaGenZ decided to pivot to building a robust internal PDF generation system (Internal PDF Generation). This solution uses an entirely Serverless Event-Driven architecture:
-- **Frontend (Next.js)** is fully hosted on AWS Amplify.
-- **Amazon API Gateway** and **AWS Lambda (Node.js)** handle the numerology calculation logic and PDF initialization.
-- **Amazon DynamoDB** stores request information and metadata.
-- **Amazon S3** stores the static PDF report files after they are generated.
-- **Amazon SES** automatically sends an email with the report attached to the user's inbox.
-
-### 3. Benefits and ROI
-The strategy of using an internal PDF generator provides a highly stable system (zero cost for third-party AI API calls), fast response times, and 100% control over the output report format. The Serverless architecture allows the system to handle heavy loads, automatically scaling when there is a large number of simultaneous lookups (e.g., during a TikTok trend), while keeping the initial infrastructure cost close to $0 by effectively leveraging the Free Tier.
+### 3. Problem to Solve
+The current market has many fortune-telling and numerology applications, but most require upfront payment or have designs that are not youth-friendly (Gen Z). Integrating Generative AI poses uncontrollable cost risks for an MVP project and increases latency when generating reports. LunaGenZ solves this problem by using a fast, free, and stable internal PDF generation system based on Serverless architecture.
 
 ### 4. Solution Architecture
-
-#### AWS Services Used
-- **AWS Amplify:** Hosting for the Next.js web app with automated CI/CD features, allowing rapid deployment of new Frontend versions.
+- **AWS Amplify:** Hosting for the Next.js web application with automatic CI/CD.
 - **Amazon API Gateway:** Acts as the gateway receiving HTTP requests from the Frontend.
-- **AWS Lambda:** Runs logic processing functions (Node.js) that calculate numerology numbers, render the PDF file, and trigger the email workflow.
-- **Amazon DynamoDB:** High-speed NoSQL database storing customer lookup history.
-- **Amazon S3:** Ideal Object Storage for securely storing static PDF report files after export.
-- **Amazon SES (Simple Email Service):** Automated email service quickly attaching PDF reports for customers.
+- **AWS Lambda:** Runs the numerology calculation logic, renders the PDF file, and triggers the email sending process.
+- **Amazon DynamoDB:** Stores customer lookup history.
+- **Amazon S3:** Safely stores the exported PDF report files.
+- **Amazon SES:** Automatically sends emails with the attached reports.
 
-#### Workflow
-1. The customer enters their **Full Name** and **Date of Birth** on the Next.js interface.
-2. The Frontend calls the API pushing data through **Amazon API Gateway**.
-3. **AWS Lambda Function** receives the request, calculates personal metrics, and calls the PDF library to render the report.
-4. The request payload is recorded in **Amazon DynamoDB**.
-5. The successfully generated PDF file is directly pushed to the **Amazon S3 Bucket**.
-6. Lambda calls **Amazon SES** to schedule and send an email containing the report to the user.
+### 5. Timeline
+- **Weeks 1 - 5:** Learn AWS architecture, participate in onboarding, set up accounts, practice basic services (VPC, EC2, IAM, S3).
+- **Weeks 6 - 8:** Advanced research on CloudFront, RDS, AutoScaling, and CloudWatch.
+- **Weeks 9 - 10:** Start developing the LunaGenZ project, delegate tasks, write Frontend (Next.js) and Backend (Node.js) code.
+- **Week 11:** Finalize integration, test end-to-end flow, and officially deploy to AWS infrastructure.
+- **Week 12:** Write internship reports, build workshop documentation.
 
-### 5. Budget Estimation & Costs
-Since the system is structured 100% on Serverless, the monthly maintenance budget in the first year (MVP phase) is extremely low thanks to leveraging the AWS Free Tier:
-- **AWS Lambda:** Up to 1 million requests/month ($0)
-- **Amazon API Gateway:** 1 million REST API calls/month ($0)
-- **Amazon DynamoDB:** 25GB storage, 25 WCU/RCU ($0)
-- **Amazon S3:** 5GB Standard storage ($0)
-- **Amazon SES:** 62,000 emails/month (if requested from EC2/Lambda) ($0)
-- **AWS Amplify:** 1000 build minutes/month, 5GB storage ($0)
+### 6. Estimated Budget (MVP Phase)
 
-**Estimated total cost:** ~$0/month in the initial phase (MVP capacity proving phase).
+The system is designed entirely on a **Serverless** architecture, which thoroughly optimizes infrastructure costs. By avoiding the use of 24/7 running servers (such as EC2), the project completely eliminates idle costs.
 
-### 6. Risk Assessment
-- **Risk 1:** Amazon SES email sending trust is limited in Sandbox mode.
-  - *Mitigation:* Submit a request to AWS Support to exit Sandbox mode and verify the Domain before officially launching the system to the public.
-- **Risk 2:** "Cold Start" issue of AWS Lambda when there are no users for a long time, slowing down PDF export speed.
-  - *Mitigation:* Optimize Node.js code, use lightweight PDF generation libraries, and set Provisioned Concurrency if necessary during the scaling phase.
+During the MVP (Minimum Viable Product) phase, the entire processing flow is designed to fit well within the limits of the **AWS Free Tier**. Below is a detailed breakdown of resource usage:
+
+| AWS Service | Role in Architecture | AWS Free Tier Limit (Monthly) | Estimated Cost |
+| :--- | :--- | :--- | :--- |
+| **AWS Amplify** | Hosting and automated Frontend deployment | 1,000 build minutes, 5GB storage, 15GB bandwidth | **$0** |
+| **Amazon API Gateway** | API routing gateway (REST/HTTP API) | 1,000,000 Requests | **$0** |
+| **AWS Lambda** | Computing environment (Logic & Report) | 1,000,000 requests & 400,000 GB-seconds compute | **$0** |
+| **Amazon DynamoDB** | Database storing user history and IP | 25GB storage, 25 WCU & 25 RCU | **$0** |
+| **Amazon S3** | Storage for PDF/JSON result documents | 5GB standard storage, 20,000 GET requests | **$0** |
+| **Amazon SES** | Automated notification Email system | 3,000 emails (12-month free tier) | **$0** |
+
+**Total Estimated Cost: ~$0/month**
+
+### 7. Risks
+- **Risk 1:** Amazon SES email sending limit due to the account being in Sandbox mode.
+  - *Solution:* Submit a ticket to AWS Support to request removal from the Sandbox. Meanwhile, use Google's Nodemailer as a fallback. Implement a try-catch block to use SES if approved; otherwise, it will automatically fall back to Nodemailer.
+- **Risk 2:** AWS Lambda "Cold Start" issue when the system has no requests for a long period.
+  - *Solution:* Optimize code and use lightweight PDF generation libraries to minimize initialization time.
+- **Risk 3:** The AWS account has not been permitted to use the AWS Bedrock service, or a support ticket was written but has not yet been approved.
+  - *Solution:* Use external AI APIs as a fallback instead of Bedrock while waiting for permission approval.

@@ -47,4 +47,4 @@ The team maintained a professional yet welcoming working environment. Everyone w
 - Provide opportunities for interns to stay connected with the team after completing the internship for continued learning and professional development.
 - **Additional comments:** I sincerely appreciate the opportunity to participate in this meaningful internship program. It has been an invaluable experience that strengthened both my technical expertise and professional skills.
 
-I would like to express my heartfelt gratitude to the entire **First Cloud Journey (FCJ)** team and **AWS Vietnam** for their guidance, support, and encouragement throughout my internship.
+I would like to express my heartfelt gratitude to the entire **First Cloud Journey (FCJ)** team and **AWS Vietnam** for their guidance, support, and encouragement throughout my internship!

@@ -12,6 +12,8 @@ pre: " <b> 1.3. </b> "
 * **Skills:** Gain proficiency in Infrastructure as Code (IaC) engineering by writing declarative stack blueprints within CloudFormation Templates.
 
 ### Tasks to be carried out this week:
+#### WEEK 3 (From 01/05/2026 to 07/05/2026)
+
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
 | 2 | - Establish a Hybrid DNS resolution landscape utilizing AWS Route 53 Resolver <br> - Provision secure key pairs and build declarative Infrastructure as Code blueprints using CloudFormation Templates | 01/05/2026 | 02/05/2026 | <https://000010.awsstudygroup.com/> |

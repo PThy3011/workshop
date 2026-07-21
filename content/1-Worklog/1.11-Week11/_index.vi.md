@@ -15,9 +15,9 @@ pre: " <b> 1.11. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 - 4 | Viết và hoàn thiện các chương của báo cáo thực tập | 26/06/2026 | 30/06/2026 | Nhật ký thực tập |
-| 5 | Rà soát nội dung, hình ảnh minh họa và tài liệu tham khảo | 01/07/2026 | 01/07/2026 | Báo cáo |
-| 6 | Chỉnh sửa định dạng và hoàn thiện báo cáo | 02/07/2026 | 02/07/2026 | Báo cáo |
+| 2-3 | Tập trung xây dựng báo cáo thực tập tốt nghiệp. Tổng hợp kiến thức các dịch vụ AWS (VPC, EC2, S3, Lambda, Security Hub...) | 26/06/2026 | 27/06/2026 |  |
+| 4-5 | Tìm hiểu thêm Amazon RDS và Aurora: triển khai, scaling, backup, high availability | 28/06/2026 | 29/06/2026 | https://docs.aws.amazon.com/rds/   |
+| 6 | Rà soát và chỉnh sửa báo cáo | 30/06/2026 | 30/06/2026 | Báo cáo |
 
 ### Kết quả đạt được tuần 11:
 * Hoàn thành nội dung báo cáo thực tập tốt nghiệp.

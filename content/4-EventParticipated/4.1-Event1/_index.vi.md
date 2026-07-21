@@ -8,7 +8,7 @@ pre: " <b>4.1.</b> "
 
 # FCAJ Meetup 2026 – Hành trình từ Sinh viên đến Chuyên gia Cloud, DevOps & Data
 
-Ngày **13/06/2026**, sự kiện **FCAJ Meetup** đã diễn ra thành công với sự tham gia của nhiều sinh viên và bạn trẻ đam mê công nghệ. Buổi chia sẻ mang đến những góc nhìn thực tế, gần gũi từ các anh chị đang làm việc trong lĩnh vực Cloud, AI, DevOps và Data.
+Ngày **13/06/2026**, sự kiện **FCAJ Meetup** đã diễn ra với sự tham gia của nhiều sinh viên và bạn trẻ đam mê công nghệ. Buổi chia sẻ mang đến những góc nhìn thực tế, gần gũi từ các anh chị đang làm việc trong lĩnh vực Cloud, AI, DevOps và Data.
 
 ## Mục tiêu sự kiện
 

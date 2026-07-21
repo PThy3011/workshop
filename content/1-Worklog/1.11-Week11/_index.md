@@ -13,11 +13,11 @@ pre: " <b> 1.11. </b> "
 
 ### Tasks for This Week
 
-| Day | Task | Start Date | Completion Date | Reference |
+| Day | Task | Start Date | End Date | Reference |
 | --- | --- | --- | --- | --- |
-| Mon - Wed | Write and complete the remaining chapters of the internship report | 26/06/2026 | 30/06/2026 | Internship Notes |
-| Thu | Review the report, screenshots, and reference materials | 01/07/2026 | 01/07/2026 | Internship Report |
-| Fri | Edit the formatting and finalize the internship report | 02/07/2026 | 02/07/2026 | Internship Report |
+| Mon–Tue | Focus on completing the internship report by consolidating knowledge of AWS services (VPC, EC2, S3, Lambda, Security Hub, etc.) | 26/06/2026 | 27/06/2026 |  |
+| Wed–Thu | Study Amazon RDS and Amazon Aurora, including deployment, scaling, backup, and high availability | 28/06/2026 | 29/06/2026 | https://docs.aws.amazon.com/rds/ |
+| Fri | Review and revise the internship report | 30/06/2026 | 30/06/2026 | Internship Report |
 
 ### Week 11 Results
 * Completed the internship report.
