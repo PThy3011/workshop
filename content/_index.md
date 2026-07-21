@@ -9,7 +9,7 @@ chapter: false
 # Internship Report
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Thi Phuong Thuy
+&emsp; **Full Name:** Nguyen Thi Phuong Thuyy
 
 &emsp; **Phone Number:** 0359293481 
 
