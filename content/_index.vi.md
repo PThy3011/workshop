@@ -31,6 +31,7 @@ chapter: false
 
 ### Nội dung báo cáo
 
+
 1.  [Worklog](1-worklog/)
 2.  [Proposal](2-proposal/)
 3.  [Các bài blogs đã dịch](3-blogstranslated/)
