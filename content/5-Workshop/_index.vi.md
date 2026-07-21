@@ -19,12 +19,12 @@ Trong bài lab này, bạn sẽ học cách:
 
 #### Nội dung
 
-1. [Tổng quan Workshop](5.1-Overview/)
-2. [Chuẩn bị (Prerequisites)](5.2-Prerequisites/)
-3. [Triển khai Backend (Lambda & API Gateway)](5.3-Backend-Lambda/)
-4. [Tự động sinh báo cáo PDF](5.4-PDF-Generation/)
-5. [Hosting Frontend (S3 & CloudFront)](5.5-Frontend-Hosting/)
-6. [Dọn dẹp tài nguyên (Clean up)](5.6-Cleanup/)
+1. [Tổng quan Workshop](5.1-Overview-and-Prerequisites/)
+2. [Chuẩn bị (Prerequisites)](5.1-Overview-and-Prerequisites/)
+3. [Triển khai Backend (Lambda & API Gateway)](5.3-Deployment/)
+4. [Kiểm tra & Giám sát](5.4-Testing-and-Monitoring/)
+5. [Tối ưu & Dọn dẹp](5.5-Optimization-and-Cleanup/)
+6. [Dọn dẹp tài nguyên (Clean up)](5.5-Optimization-and-Cleanup/)
 
 #### Demo
 
